@@ -1,17 +1,17 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { Section, Eyebrow } from "@/components/Section";
 import { SERVICES } from "@/lib/site";
-import fatMelting from "@/assets/treatments/Fat_Melting.png.media.json";
-import skinTight from "@/assets/treatments/Skin_Tightening.png.media.json";
-import antiAging from "@/assets/treatments/Anti_Aging.png.media.json";
-import muscleToning from "@/assets/treatments/Muscle_Toning.png.media.json";
-import breastFiller from "@/assets/treatments/Breast_Filler.png.media.json";
-import buttFiller from "@/assets/treatments/Butt_Lift.png.media.json";
-import cavitation from "@/assets/treatments/Cavitation.jpg.media.json";
-import lymphatic from "@/assets/treatments/Lymphatic_Drainage.png.media.json";
-import slimming from "@/assets/treatments/Fat_Dissolving.png.media.json";
-import peptides from "@/assets/treatments/Peptides.png.media.json";
-import bodyContour from "@/assets/treatments/Body_Contouring.png.media.json";
+import fatMelting from "@/assets/treatments/Fat_Melting.png.media";
+import skinTight from "@/assets/treatments/Skin_Tightening.png.media";
+import antiAging from "@/assets/treatments/Anti_Aging.png.media";
+import muscleToning from "@/assets/treatments/Muscle_Toning.png.media";
+import breastFiller from "@/assets/treatments/Breast_Filler.png.media";
+import buttFiller from "@/assets/treatments/Butt_Lift.png.media";
+import cavitation from "@/assets/treatments/Cavitation.jpg.media";
+import lymphatic from "@/assets/treatments/Lymphatic_Drainage.png.media";
+import slimming from "@/assets/treatments/Fat_Dissolving.png.media";
+import peptides from "@/assets/treatments/Peptides.png.media";
+import bodyContour from "@/assets/treatments/Body_Contouring.png.media";
 import ivTherapy from "@/assets/treatments/IV_Therapy.jpg";
 
 const SERVICE_IMAGES: Record<string, string> = {

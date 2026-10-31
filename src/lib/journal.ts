@@ -1,6 +1,6 @@
-import bellyFatAsset from "@/assets/journal-belly-fat-v2.png.media.json";
-import glp1Asset from "@/assets/journal-tirzep.png.media.json";
-import consultationAsset from "@/assets/journal-consult.png.media.json";
+import bellyFatAsset from "@/assets/journal-belly-fat-v2.png.media";
+import glp1Asset from "@/assets/journal-tirzep.png.media";
+import consultationAsset from "@/assets/journal-consult.png.media";
 
 const bellyFatThumb = bellyFatAsset.url;
 const glp1Thumb = glp1Asset.url;

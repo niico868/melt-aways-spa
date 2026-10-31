@@ -1,4 +1,4 @@
-import heroBanner from "@/assets/hero-banner-treatment.png.media.json";
+import heroBanner from "@/assets/hero-banner-treatment.png.media";
 
 /**
  * HeroMedia — full-bleed autoplaying background video with a warm readability

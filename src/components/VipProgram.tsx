@@ -2,7 +2,7 @@ import { Link } from "@tanstack/react-router";
 import { Crown, Hourglass, ClipboardList, Users, Sparkles } from "lucide-react";
 import { Section } from "@/components/Section";
 import { SITE, waLink } from "@/lib/site";
-import vipImage from "@/assets/treatments/Muscle_Toning.png.media.json";
+import vipImage from "@/assets/treatments/Muscle_Toning.png.media";
 
 const PILLARS = [
   { icon: ClipboardList, title: "Personalized", sub: "Spa Roadmap" },
