@@ -4,7 +4,6 @@ import {
   Link,
   createRootRouteWithContext,
   useRouter,
-  useRouterState,
   HeadContent,
   Scripts,
 } from "@tanstack/react-router";
@@ -20,19 +19,6 @@ const ScrollProgress = lazy(() => import("../components/ScrollProgress").then((m
 const AmbientAudio = lazy(() => import("../components/AmbientAudio").then((m) => ({ default: m.AmbientAudio })));
 
 function NotFoundComponent() {
-  useEffect(() => {
-    if (typeof window === "undefined") return;
-    const hash = window.location.hash;
-    const search = window.location.search;
-    const looksLikeAuth =
-      hash.includes("access_token=") ||
-      hash.includes("type=invite") ||
-      hash.includes("type=recovery") ||
-      /[?&]code=/.test(search);
-    if (looksLikeAuth && window.location.pathname !== "/set-password") {
-      window.location.replace(`/set-password${search}${hash}`);
-    }
-  }, []);
   return (
     <div className="flex min-h-screen items-center justify-center bg-background px-4">
       <div className="max-w-md text-center">
@@ -150,35 +136,8 @@ function RootShell({ children }: { children: ReactNode }) {
 
 function RootComponent() {
   const { queryClient } = Route.useRouteContext();
-  const pathname = useRouterState({ select: (s) => s.location.pathname });
-  const browserPath = typeof window === "undefined" ? "" : window.location.pathname;
-  const isDashboard =
-    pathname === "/dashboard" ||
-    pathname.startsWith("/dashboard/") ||
-    browserPath === "/dashboard" ||
-    browserPath.startsWith("/dashboard/");
 
-  useEffect(() => {
-    if (typeof window === "undefined") return;
-    const hash = window.location.hash;
-    const search = window.location.search;
-    const looksLikeAuth =
-      hash.includes("access_token=") ||
-      hash.includes("type=invite") ||
-      hash.includes("type=recovery") ||
-      /[?&]code=/.test(search);
-    if (looksLikeAuth && window.location.pathname === "/") {
-      window.location.replace(`/set-password${search}${hash}`);
-    }
-  }, []);
 
-  if (isDashboard) {
-    return (
-      <QueryClientProvider client={queryClient}>
-        <Outlet />
-      </QueryClientProvider>
-    );
-  }
 
   return (
     <QueryClientProvider client={queryClient}>
