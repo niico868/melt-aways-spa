@@ -27,7 +27,9 @@ function Contact() {
     ].join("\n");
     window.open(waLink(msg), "_blank", "noopener,noreferrer");
     setSent(true);
-    // Also forward the enquiry to the salon booking API (non-blocking, silent on failure)
+    // Also send the enquiry to the salon dashboard API. Not awaited: the
+    // client's full message has already opened in WhatsApp, so a failed
+    // send here doesn't need an on-screen error.
     void postEnquiry({
       source: "contact",
       name: String(f.get("name") || ""),

@@ -11,64 +11,27 @@
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as AboutRouteImport } from './routes/about'
-import { Route as AccountRouteImport } from './routes/account'
-import { Route as AuthRouteImport } from './routes/auth'
 import { Route as BookingRouteImport } from './routes/booking'
 import { Route as CertificationsRouteImport } from './routes/certifications'
 import { Route as ContactRouteImport } from './routes/contact'
-import { Route as DashboardRouteImport } from './routes/dashboard'
 import { Route as FaqRouteImport } from './routes/faq'
 import { Route as GalleryRouteImport } from './routes/gallery'
 import { Route as JournalRouteImport } from './routes/journal'
-import { Route as LoginRouteImport } from './routes/login'
-import { Route as McpRouteImport } from './routes/mcp'
 import { Route as PackagesRouteImport } from './routes/packages'
 import { Route as PoliciesRouteImport } from './routes/policies'
 import { Route as ProductsRouteImport } from './routes/products'
 import { Route as ReviewsRouteImport } from './routes/reviews'
-import { Route as SetPasswordRouteImport } from './routes/set-password'
 import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
 import { Route as TimelineRouteImport } from './routes/timeline'
 import { Route as TreatmentFinderRouteImport } from './routes/treatment-finder'
 import { Route as VipRouteImport } from './routes/vip'
 import { Route as VipconsultRouteImport } from './routes/vipconsult'
 import { Route as VisitingRouteImport } from './routes/visiting'
-import { Route as Char91DotmcpChar93ListToolsRouteImport } from './routes/[.mcp]/list-tools'
-import { Route as Char91DotwellKnownChar93OauthProtectedResourceRouteImport } from './routes/[.well-known]/oauth-protected-resource'
-import { Route as DashboardIndexRouteImport } from './routes/dashboard.index'
-import { Route as DashboardAppointmentsRouteImport } from './routes/dashboard.appointments'
-import { Route as DashboardAuditRouteImport } from './routes/dashboard.audit'
-import { Route as DashboardConsultationsRouteImport } from './routes/dashboard.consultations'
-import { Route as DashboardCustomersRouteImport } from './routes/dashboard.customers'
-import { Route as DashboardEmailPreviewsRouteImport } from './routes/dashboard.email-previews'
-import { Route as DashboardEmployeesRouteImport } from './routes/dashboard.employees'
-import { Route as DashboardInterestsRouteImport } from './routes/dashboard.interests'
-import { Route as DashboardMarketingRouteImport } from './routes/dashboard.marketing'
-import { Route as DashboardReportsRouteImport } from './routes/dashboard.reports'
-import { Route as DashboardSalesRouteImport } from './routes/dashboard.sales'
-import { Route as DashboardServicesRouteImport } from './routes/dashboard.services'
-import { Route as DashboardSettingsRouteImport } from './routes/dashboard.settings'
-import { Route as DashboardTherapistsRouteImport } from './routes/dashboard.therapists'
 import { Route as JournalIndexRouteImport } from './routes/journal.index'
 import { Route as JournalSlugRouteImport } from './routes/journal.$slug'
 import { Route as LocationsSlugRouteImport } from './routes/locations.$slug'
 import { Route as ServicesIndexRouteImport } from './routes/services.index'
 import { Route as ServicesSlugRouteImport } from './routes/services.$slug'
-import { Route as DotlovableOauthConsentRouteImport } from './routes/[.]lovable.oauth.consent'
-import { Route as Char91DotmcpChar93InvokeToolToolRouteImport } from './routes/[.mcp]/invoke-tool/$tool'
-import { Route as ApiPublicSubmitConsultationRouteImport } from './routes/api/public/submit-consultation'
-import { Route as ApiPublicSubmitVipConsultationRouteImport } from './routes/api/public/submit-vip-consultation'
-import { Route as DashboardAppointmentsIndexRouteImport } from './routes/dashboard.appointments.index'
-import { Route as DashboardAppointmentsIdRouteImport } from './routes/dashboard.appointments.$id'
-import { Route as DashboardCustomersIndexRouteImport } from './routes/dashboard.customers.index'
-import { Route as DashboardCustomersIdRouteImport } from './routes/dashboard.customers.$id'
-import { Route as DashboardSalesIndexRouteImport } from './routes/dashboard.sales.index'
-import { Route as DashboardSalesIdRouteImport } from './routes/dashboard.sales.$id'
-import { Route as LovableEmailEventsRouteImport } from './routes/lovable/email/events'
-import { Route as ApiPublicHooksTreatmentFollowupRouteImport } from './routes/api/public/hooks/treatment-followup'
-import { Route as LovableEmailAuthPreviewRouteImport } from './routes/lovable/email/auth/preview'
-import { Route as LovableEmailAuthWebhookRouteImport } from './routes/lovable/email/auth/webhook'
-import { Route as LovableEmailTransactionalPreviewRouteImport } from './routes/lovable/email/transactional/preview'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
@@ -78,16 +41,6 @@ const IndexRoute = IndexRouteImport.update({
 const AboutRoute = AboutRouteImport.update({
   id: '/about',
   path: '/about',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const AccountRoute = AccountRouteImport.update({
-  id: '/account',
-  path: '/account',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const AuthRoute = AuthRouteImport.update({
-  id: '/auth',
-  path: '/auth',
   getParentRoute: () => rootRouteImport,
 } as any)
 const BookingRoute = BookingRouteImport.update({
@@ -105,11 +58,6 @@ const ContactRoute = ContactRouteImport.update({
   path: '/contact',
   getParentRoute: () => rootRouteImport,
 } as any)
-const DashboardRoute = DashboardRouteImport.update({
-  id: '/dashboard',
-  path: '/dashboard',
-  getParentRoute: () => rootRouteImport,
-} as any)
 const FaqRoute = FaqRouteImport.update({
   id: '/faq',
   path: '/faq',
@@ -123,16 +71,6 @@ const GalleryRoute = GalleryRouteImport.update({
 const JournalRoute = JournalRouteImport.update({
   id: '/journal',
   path: '/journal',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const LoginRoute = LoginRouteImport.update({
-  id: '/login',
-  path: '/login',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const McpRoute = McpRouteImport.update({
-  id: '/mcp',
-  path: '/mcp',
   getParentRoute: () => rootRouteImport,
 } as any)
 const PackagesRoute = PackagesRouteImport.update({
@@ -153,11 +91,6 @@ const ProductsRoute = ProductsRouteImport.update({
 const ReviewsRoute = ReviewsRouteImport.update({
   id: '/reviews',
   path: '/reviews',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const SetPasswordRoute = SetPasswordRouteImport.update({
-  id: '/set-password',
-  path: '/set-password',
   getParentRoute: () => rootRouteImport,
 } as any)
 const SitemapDotxmlRoute = SitemapDotxmlRouteImport.update({
@@ -190,88 +123,6 @@ const VisitingRoute = VisitingRouteImport.update({
   path: '/visiting',
   getParentRoute: () => rootRouteImport,
 } as any)
-const Char91DotmcpChar93ListToolsRoute =
-  Char91DotmcpChar93ListToolsRouteImport.update({
-    id: '/.mcp/list-tools',
-    path: '/.mcp/list-tools',
-    getParentRoute: () => rootRouteImport,
-  } as any)
-const Char91DotwellKnownChar93OauthProtectedResourceRoute =
-  Char91DotwellKnownChar93OauthProtectedResourceRouteImport.update({
-    id: '/.well-known/oauth-protected-resource',
-    path: '/.well-known/oauth-protected-resource',
-    getParentRoute: () => rootRouteImport,
-  } as any)
-const DashboardIndexRoute = DashboardIndexRouteImport.update({
-  id: '/',
-  path: '/',
-  getParentRoute: () => DashboardRoute,
-} as any)
-const DashboardAppointmentsRoute = DashboardAppointmentsRouteImport.update({
-  id: '/appointments',
-  path: '/appointments',
-  getParentRoute: () => DashboardRoute,
-} as any)
-const DashboardAuditRoute = DashboardAuditRouteImport.update({
-  id: '/audit',
-  path: '/audit',
-  getParentRoute: () => DashboardRoute,
-} as any)
-const DashboardConsultationsRoute = DashboardConsultationsRouteImport.update({
-  id: '/consultations',
-  path: '/consultations',
-  getParentRoute: () => DashboardRoute,
-} as any)
-const DashboardCustomersRoute = DashboardCustomersRouteImport.update({
-  id: '/customers',
-  path: '/customers',
-  getParentRoute: () => DashboardRoute,
-} as any)
-const DashboardEmailPreviewsRoute = DashboardEmailPreviewsRouteImport.update({
-  id: '/email-previews',
-  path: '/email-previews',
-  getParentRoute: () => DashboardRoute,
-} as any)
-const DashboardEmployeesRoute = DashboardEmployeesRouteImport.update({
-  id: '/employees',
-  path: '/employees',
-  getParentRoute: () => DashboardRoute,
-} as any)
-const DashboardInterestsRoute = DashboardInterestsRouteImport.update({
-  id: '/interests',
-  path: '/interests',
-  getParentRoute: () => DashboardRoute,
-} as any)
-const DashboardMarketingRoute = DashboardMarketingRouteImport.update({
-  id: '/marketing',
-  path: '/marketing',
-  getParentRoute: () => DashboardRoute,
-} as any)
-const DashboardReportsRoute = DashboardReportsRouteImport.update({
-  id: '/reports',
-  path: '/reports',
-  getParentRoute: () => DashboardRoute,
-} as any)
-const DashboardSalesRoute = DashboardSalesRouteImport.update({
-  id: '/sales',
-  path: '/sales',
-  getParentRoute: () => DashboardRoute,
-} as any)
-const DashboardServicesRoute = DashboardServicesRouteImport.update({
-  id: '/services',
-  path: '/services',
-  getParentRoute: () => DashboardRoute,
-} as any)
-const DashboardSettingsRoute = DashboardSettingsRouteImport.update({
-  id: '/settings',
-  path: '/settings',
-  getParentRoute: () => DashboardRoute,
-} as any)
-const DashboardTherapistsRoute = DashboardTherapistsRouteImport.update({
-  id: '/therapists',
-  path: '/therapists',
-  getParentRoute: () => DashboardRoute,
-} as any)
 const JournalIndexRoute = JournalIndexRouteImport.update({
   id: '/',
   path: '/',
@@ -297,493 +148,181 @@ const ServicesSlugRoute = ServicesSlugRouteImport.update({
   path: '/services/$slug',
   getParentRoute: () => rootRouteImport,
 } as any)
-const DotlovableOauthConsentRoute = DotlovableOauthConsentRouteImport.update({
-  id: '/.lovable/oauth/consent',
-  path: '/.lovable/oauth/consent',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const Char91DotmcpChar93InvokeToolToolRoute =
-  Char91DotmcpChar93InvokeToolToolRouteImport.update({
-    id: '/.mcp/invoke-tool/$tool',
-    path: '/.mcp/invoke-tool/$tool',
-    getParentRoute: () => rootRouteImport,
-  } as any)
-const ApiPublicSubmitConsultationRoute =
-  ApiPublicSubmitConsultationRouteImport.update({
-    id: '/api/public/submit-consultation',
-    path: '/api/public/submit-consultation',
-    getParentRoute: () => rootRouteImport,
-  } as any)
-const ApiPublicSubmitVipConsultationRoute =
-  ApiPublicSubmitVipConsultationRouteImport.update({
-    id: '/api/public/submit-vip-consultation',
-    path: '/api/public/submit-vip-consultation',
-    getParentRoute: () => rootRouteImport,
-  } as any)
-const DashboardAppointmentsIndexRoute =
-  DashboardAppointmentsIndexRouteImport.update({
-    id: '/',
-    path: '/',
-    getParentRoute: () => DashboardAppointmentsRoute,
-  } as any)
-const DashboardAppointmentsIdRoute = DashboardAppointmentsIdRouteImport.update({
-  id: '/$id',
-  path: '/$id',
-  getParentRoute: () => DashboardAppointmentsRoute,
-} as any)
-const DashboardCustomersIndexRoute = DashboardCustomersIndexRouteImport.update({
-  id: '/',
-  path: '/',
-  getParentRoute: () => DashboardCustomersRoute,
-} as any)
-const DashboardCustomersIdRoute = DashboardCustomersIdRouteImport.update({
-  id: '/$id',
-  path: '/$id',
-  getParentRoute: () => DashboardCustomersRoute,
-} as any)
-const DashboardSalesIndexRoute = DashboardSalesIndexRouteImport.update({
-  id: '/',
-  path: '/',
-  getParentRoute: () => DashboardSalesRoute,
-} as any)
-const DashboardSalesIdRoute = DashboardSalesIdRouteImport.update({
-  id: '/$id',
-  path: '/$id',
-  getParentRoute: () => DashboardSalesRoute,
-} as any)
-const LovableEmailEventsRoute = LovableEmailEventsRouteImport.update({
-  id: '/lovable/email/events',
-  path: '/lovable/email/events',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const ApiPublicHooksTreatmentFollowupRoute =
-  ApiPublicHooksTreatmentFollowupRouteImport.update({
-    id: '/api/public/hooks/treatment-followup',
-    path: '/api/public/hooks/treatment-followup',
-    getParentRoute: () => rootRouteImport,
-  } as any)
-const LovableEmailAuthPreviewRoute = LovableEmailAuthPreviewRouteImport.update({
-  id: '/lovable/email/auth/preview',
-  path: '/lovable/email/auth/preview',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const LovableEmailAuthWebhookRoute = LovableEmailAuthWebhookRouteImport.update({
-  id: '/lovable/email/auth/webhook',
-  path: '/lovable/email/auth/webhook',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const LovableEmailTransactionalPreviewRoute =
-  LovableEmailTransactionalPreviewRouteImport.update({
-    id: '/lovable/email/transactional/preview',
-    path: '/lovable/email/transactional/preview',
-    getParentRoute: () => rootRouteImport,
-  } as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
-  '/account': typeof AccountRoute
-  '/auth': typeof AuthRoute
   '/booking': typeof BookingRoute
   '/certifications': typeof CertificationsRoute
   '/contact': typeof ContactRoute
-  '/dashboard': typeof DashboardRouteWithChildren
   '/faq': typeof FaqRoute
   '/gallery': typeof GalleryRoute
   '/journal': typeof JournalRouteWithChildren
-  '/login': typeof LoginRoute
-  '/mcp': typeof McpRoute
   '/packages': typeof PackagesRoute
   '/policies': typeof PoliciesRoute
   '/products': typeof ProductsRoute
   '/reviews': typeof ReviewsRoute
-  '/set-password': typeof SetPasswordRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/timeline': typeof TimelineRoute
   '/treatment-finder': typeof TreatmentFinderRoute
   '/vip': typeof VipRoute
   '/vipconsult': typeof VipconsultRoute
   '/visiting': typeof VisitingRoute
-  '/.mcp/list-tools': typeof Char91DotmcpChar93ListToolsRoute
-  '/.well-known/oauth-protected-resource': typeof Char91DotwellKnownChar93OauthProtectedResourceRoute
-  '/dashboard/appointments': typeof DashboardAppointmentsRouteWithChildren
-  '/dashboard/audit': typeof DashboardAuditRoute
-  '/dashboard/consultations': typeof DashboardConsultationsRoute
-  '/dashboard/customers': typeof DashboardCustomersRouteWithChildren
-  '/dashboard/email-previews': typeof DashboardEmailPreviewsRoute
-  '/dashboard/employees': typeof DashboardEmployeesRoute
-  '/dashboard/interests': typeof DashboardInterestsRoute
-  '/dashboard/marketing': typeof DashboardMarketingRoute
-  '/dashboard/reports': typeof DashboardReportsRoute
-  '/dashboard/sales': typeof DashboardSalesRouteWithChildren
-  '/dashboard/services': typeof DashboardServicesRoute
-  '/dashboard/settings': typeof DashboardSettingsRoute
-  '/dashboard/therapists': typeof DashboardTherapistsRoute
   '/journal/$slug': typeof JournalSlugRoute
   '/locations/$slug': typeof LocationsSlugRoute
   '/services/$slug': typeof ServicesSlugRoute
-  '/dashboard/': typeof DashboardIndexRoute
   '/journal/': typeof JournalIndexRoute
   '/services/': typeof ServicesIndexRoute
-  '/.lovable/oauth/consent': typeof DotlovableOauthConsentRoute
-  '/.mcp/invoke-tool/$tool': typeof Char91DotmcpChar93InvokeToolToolRoute
-  '/api/public/submit-consultation': typeof ApiPublicSubmitConsultationRoute
-  '/api/public/submit-vip-consultation': typeof ApiPublicSubmitVipConsultationRoute
-  '/dashboard/appointments/$id': typeof DashboardAppointmentsIdRoute
-  '/dashboard/customers/$id': typeof DashboardCustomersIdRoute
-  '/dashboard/sales/$id': typeof DashboardSalesIdRoute
-  '/lovable/email/events': typeof LovableEmailEventsRoute
-  '/dashboard/appointments/': typeof DashboardAppointmentsIndexRoute
-  '/dashboard/customers/': typeof DashboardCustomersIndexRoute
-  '/dashboard/sales/': typeof DashboardSalesIndexRoute
-  '/api/public/hooks/treatment-followup': typeof ApiPublicHooksTreatmentFollowupRoute
-  '/lovable/email/auth/preview': typeof LovableEmailAuthPreviewRoute
-  '/lovable/email/auth/webhook': typeof LovableEmailAuthWebhookRoute
-  '/lovable/email/transactional/preview': typeof LovableEmailTransactionalPreviewRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
-  '/account': typeof AccountRoute
-  '/auth': typeof AuthRoute
   '/booking': typeof BookingRoute
   '/certifications': typeof CertificationsRoute
   '/contact': typeof ContactRoute
   '/faq': typeof FaqRoute
   '/gallery': typeof GalleryRoute
-  '/login': typeof LoginRoute
-  '/mcp': typeof McpRoute
   '/packages': typeof PackagesRoute
   '/policies': typeof PoliciesRoute
   '/products': typeof ProductsRoute
   '/reviews': typeof ReviewsRoute
-  '/set-password': typeof SetPasswordRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/timeline': typeof TimelineRoute
   '/treatment-finder': typeof TreatmentFinderRoute
   '/vip': typeof VipRoute
   '/vipconsult': typeof VipconsultRoute
   '/visiting': typeof VisitingRoute
-  '/.mcp/list-tools': typeof Char91DotmcpChar93ListToolsRoute
-  '/.well-known/oauth-protected-resource': typeof Char91DotwellKnownChar93OauthProtectedResourceRoute
-  '/dashboard/audit': typeof DashboardAuditRoute
-  '/dashboard/consultations': typeof DashboardConsultationsRoute
-  '/dashboard/email-previews': typeof DashboardEmailPreviewsRoute
-  '/dashboard/employees': typeof DashboardEmployeesRoute
-  '/dashboard/interests': typeof DashboardInterestsRoute
-  '/dashboard/marketing': typeof DashboardMarketingRoute
-  '/dashboard/reports': typeof DashboardReportsRoute
-  '/dashboard/services': typeof DashboardServicesRoute
-  '/dashboard/settings': typeof DashboardSettingsRoute
-  '/dashboard/therapists': typeof DashboardTherapistsRoute
   '/journal/$slug': typeof JournalSlugRoute
   '/locations/$slug': typeof LocationsSlugRoute
   '/services/$slug': typeof ServicesSlugRoute
-  '/dashboard': typeof DashboardIndexRoute
   '/journal': typeof JournalIndexRoute
   '/services': typeof ServicesIndexRoute
-  '/.lovable/oauth/consent': typeof DotlovableOauthConsentRoute
-  '/.mcp/invoke-tool/$tool': typeof Char91DotmcpChar93InvokeToolToolRoute
-  '/api/public/submit-consultation': typeof ApiPublicSubmitConsultationRoute
-  '/api/public/submit-vip-consultation': typeof ApiPublicSubmitVipConsultationRoute
-  '/dashboard/appointments/$id': typeof DashboardAppointmentsIdRoute
-  '/dashboard/customers/$id': typeof DashboardCustomersIdRoute
-  '/dashboard/sales/$id': typeof DashboardSalesIdRoute
-  '/lovable/email/events': typeof LovableEmailEventsRoute
-  '/dashboard/appointments': typeof DashboardAppointmentsIndexRoute
-  '/dashboard/customers': typeof DashboardCustomersIndexRoute
-  '/dashboard/sales': typeof DashboardSalesIndexRoute
-  '/api/public/hooks/treatment-followup': typeof ApiPublicHooksTreatmentFollowupRoute
-  '/lovable/email/auth/preview': typeof LovableEmailAuthPreviewRoute
-  '/lovable/email/auth/webhook': typeof LovableEmailAuthWebhookRoute
-  '/lovable/email/transactional/preview': typeof LovableEmailTransactionalPreviewRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
-  '/account': typeof AccountRoute
-  '/auth': typeof AuthRoute
   '/booking': typeof BookingRoute
   '/certifications': typeof CertificationsRoute
   '/contact': typeof ContactRoute
-  '/dashboard': typeof DashboardRouteWithChildren
   '/faq': typeof FaqRoute
   '/gallery': typeof GalleryRoute
   '/journal': typeof JournalRouteWithChildren
-  '/login': typeof LoginRoute
-  '/mcp': typeof McpRoute
   '/packages': typeof PackagesRoute
   '/policies': typeof PoliciesRoute
   '/products': typeof ProductsRoute
   '/reviews': typeof ReviewsRoute
-  '/set-password': typeof SetPasswordRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/timeline': typeof TimelineRoute
   '/treatment-finder': typeof TreatmentFinderRoute
   '/vip': typeof VipRoute
   '/vipconsult': typeof VipconsultRoute
   '/visiting': typeof VisitingRoute
-  '/.mcp/list-tools': typeof Char91DotmcpChar93ListToolsRoute
-  '/.well-known/oauth-protected-resource': typeof Char91DotwellKnownChar93OauthProtectedResourceRoute
-  '/dashboard/appointments': typeof DashboardAppointmentsRouteWithChildren
-  '/dashboard/audit': typeof DashboardAuditRoute
-  '/dashboard/consultations': typeof DashboardConsultationsRoute
-  '/dashboard/customers': typeof DashboardCustomersRouteWithChildren
-  '/dashboard/email-previews': typeof DashboardEmailPreviewsRoute
-  '/dashboard/employees': typeof DashboardEmployeesRoute
-  '/dashboard/interests': typeof DashboardInterestsRoute
-  '/dashboard/marketing': typeof DashboardMarketingRoute
-  '/dashboard/reports': typeof DashboardReportsRoute
-  '/dashboard/sales': typeof DashboardSalesRouteWithChildren
-  '/dashboard/services': typeof DashboardServicesRoute
-  '/dashboard/settings': typeof DashboardSettingsRoute
-  '/dashboard/therapists': typeof DashboardTherapistsRoute
   '/journal/$slug': typeof JournalSlugRoute
   '/locations/$slug': typeof LocationsSlugRoute
   '/services/$slug': typeof ServicesSlugRoute
-  '/dashboard/': typeof DashboardIndexRoute
   '/journal/': typeof JournalIndexRoute
   '/services/': typeof ServicesIndexRoute
-  '/.lovable/oauth/consent': typeof DotlovableOauthConsentRoute
-  '/.mcp/invoke-tool/$tool': typeof Char91DotmcpChar93InvokeToolToolRoute
-  '/api/public/submit-consultation': typeof ApiPublicSubmitConsultationRoute
-  '/api/public/submit-vip-consultation': typeof ApiPublicSubmitVipConsultationRoute
-  '/dashboard/appointments/$id': typeof DashboardAppointmentsIdRoute
-  '/dashboard/customers/$id': typeof DashboardCustomersIdRoute
-  '/dashboard/sales/$id': typeof DashboardSalesIdRoute
-  '/lovable/email/events': typeof LovableEmailEventsRoute
-  '/dashboard/appointments/': typeof DashboardAppointmentsIndexRoute
-  '/dashboard/customers/': typeof DashboardCustomersIndexRoute
-  '/dashboard/sales/': typeof DashboardSalesIndexRoute
-  '/api/public/hooks/treatment-followup': typeof ApiPublicHooksTreatmentFollowupRoute
-  '/lovable/email/auth/preview': typeof LovableEmailAuthPreviewRoute
-  '/lovable/email/auth/webhook': typeof LovableEmailAuthWebhookRoute
-  '/lovable/email/transactional/preview': typeof LovableEmailTransactionalPreviewRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
-    | '/'
+    '/'
     | '/about'
-    | '/account'
-    | '/auth'
     | '/booking'
     | '/certifications'
     | '/contact'
-    | '/dashboard'
     | '/faq'
     | '/gallery'
     | '/journal'
-    | '/login'
-    | '/mcp'
     | '/packages'
     | '/policies'
     | '/products'
     | '/reviews'
-    | '/set-password'
     | '/sitemap.xml'
     | '/timeline'
     | '/treatment-finder'
     | '/vip'
     | '/vipconsult'
     | '/visiting'
-    | '/.mcp/list-tools'
-    | '/.well-known/oauth-protected-resource'
-    | '/dashboard/appointments'
-    | '/dashboard/audit'
-    | '/dashboard/consultations'
-    | '/dashboard/customers'
-    | '/dashboard/email-previews'
-    | '/dashboard/employees'
-    | '/dashboard/interests'
-    | '/dashboard/marketing'
-    | '/dashboard/reports'
-    | '/dashboard/sales'
-    | '/dashboard/services'
-    | '/dashboard/settings'
-    | '/dashboard/therapists'
     | '/journal/$slug'
     | '/locations/$slug'
     | '/services/$slug'
-    | '/dashboard/'
     | '/journal/'
     | '/services/'
-    | '/.lovable/oauth/consent'
-    | '/.mcp/invoke-tool/$tool'
-    | '/api/public/submit-consultation'
-    | '/api/public/submit-vip-consultation'
-    | '/dashboard/appointments/$id'
-    | '/dashboard/customers/$id'
-    | '/dashboard/sales/$id'
-    | '/lovable/email/events'
-    | '/dashboard/appointments/'
-    | '/dashboard/customers/'
-    | '/dashboard/sales/'
-    | '/api/public/hooks/treatment-followup'
-    | '/lovable/email/auth/preview'
-    | '/lovable/email/auth/webhook'
-    | '/lovable/email/transactional/preview'
   fileRoutesByTo: FileRoutesByTo
   to:
-    | '/'
+    '/'
     | '/about'
-    | '/account'
-    | '/auth'
     | '/booking'
     | '/certifications'
     | '/contact'
     | '/faq'
     | '/gallery'
-    | '/login'
-    | '/mcp'
     | '/packages'
     | '/policies'
     | '/products'
     | '/reviews'
-    | '/set-password'
     | '/sitemap.xml'
     | '/timeline'
     | '/treatment-finder'
     | '/vip'
     | '/vipconsult'
     | '/visiting'
-    | '/.mcp/list-tools'
-    | '/.well-known/oauth-protected-resource'
-    | '/dashboard/audit'
-    | '/dashboard/consultations'
-    | '/dashboard/email-previews'
-    | '/dashboard/employees'
-    | '/dashboard/interests'
-    | '/dashboard/marketing'
-    | '/dashboard/reports'
-    | '/dashboard/services'
-    | '/dashboard/settings'
-    | '/dashboard/therapists'
     | '/journal/$slug'
     | '/locations/$slug'
     | '/services/$slug'
-    | '/dashboard'
     | '/journal'
     | '/services'
-    | '/.lovable/oauth/consent'
-    | '/.mcp/invoke-tool/$tool'
-    | '/api/public/submit-consultation'
-    | '/api/public/submit-vip-consultation'
-    | '/dashboard/appointments/$id'
-    | '/dashboard/customers/$id'
-    | '/dashboard/sales/$id'
-    | '/lovable/email/events'
-    | '/dashboard/appointments'
-    | '/dashboard/customers'
-    | '/dashboard/sales'
-    | '/api/public/hooks/treatment-followup'
-    | '/lovable/email/auth/preview'
-    | '/lovable/email/auth/webhook'
-    | '/lovable/email/transactional/preview'
   id:
-    | '__root__'
+    '__root__'
     | '/'
     | '/about'
-    | '/account'
-    | '/auth'
     | '/booking'
     | '/certifications'
     | '/contact'
-    | '/dashboard'
     | '/faq'
     | '/gallery'
     | '/journal'
-    | '/login'
-    | '/mcp'
     | '/packages'
     | '/policies'
     | '/products'
     | '/reviews'
-    | '/set-password'
     | '/sitemap.xml'
     | '/timeline'
     | '/treatment-finder'
     | '/vip'
     | '/vipconsult'
     | '/visiting'
-    | '/.mcp/list-tools'
-    | '/.well-known/oauth-protected-resource'
-    | '/dashboard/appointments'
-    | '/dashboard/audit'
-    | '/dashboard/consultations'
-    | '/dashboard/customers'
-    | '/dashboard/email-previews'
-    | '/dashboard/employees'
-    | '/dashboard/interests'
-    | '/dashboard/marketing'
-    | '/dashboard/reports'
-    | '/dashboard/sales'
-    | '/dashboard/services'
-    | '/dashboard/settings'
-    | '/dashboard/therapists'
     | '/journal/$slug'
     | '/locations/$slug'
     | '/services/$slug'
-    | '/dashboard/'
     | '/journal/'
     | '/services/'
-    | '/.lovable/oauth/consent'
-    | '/.mcp/invoke-tool/$tool'
-    | '/api/public/submit-consultation'
-    | '/api/public/submit-vip-consultation'
-    | '/dashboard/appointments/$id'
-    | '/dashboard/customers/$id'
-    | '/dashboard/sales/$id'
-    | '/lovable/email/events'
-    | '/dashboard/appointments/'
-    | '/dashboard/customers/'
-    | '/dashboard/sales/'
-    | '/api/public/hooks/treatment-followup'
-    | '/lovable/email/auth/preview'
-    | '/lovable/email/auth/webhook'
-    | '/lovable/email/transactional/preview'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   AboutRoute: typeof AboutRoute
-  AccountRoute: typeof AccountRoute
-  AuthRoute: typeof AuthRoute
   BookingRoute: typeof BookingRoute
   CertificationsRoute: typeof CertificationsRoute
   ContactRoute: typeof ContactRoute
-  DashboardRoute: typeof DashboardRouteWithChildren
   FaqRoute: typeof FaqRoute
   GalleryRoute: typeof GalleryRoute
   JournalRoute: typeof JournalRouteWithChildren
-  LoginRoute: typeof LoginRoute
-  McpRoute: typeof McpRoute
   PackagesRoute: typeof PackagesRoute
   PoliciesRoute: typeof PoliciesRoute
   ProductsRoute: typeof ProductsRoute
   ReviewsRoute: typeof ReviewsRoute
-  SetPasswordRoute: typeof SetPasswordRoute
   SitemapDotxmlRoute: typeof SitemapDotxmlRoute
   TimelineRoute: typeof TimelineRoute
   TreatmentFinderRoute: typeof TreatmentFinderRoute
   VipRoute: typeof VipRoute
   VipconsultRoute: typeof VipconsultRoute
   VisitingRoute: typeof VisitingRoute
-  Char91DotmcpChar93ListToolsRoute: typeof Char91DotmcpChar93ListToolsRoute
-  Char91DotwellKnownChar93OauthProtectedResourceRoute: typeof Char91DotwellKnownChar93OauthProtectedResourceRoute
   LocationsSlugRoute: typeof LocationsSlugRoute
   ServicesSlugRoute: typeof ServicesSlugRoute
   ServicesIndexRoute: typeof ServicesIndexRoute
-  DotlovableOauthConsentRoute: typeof DotlovableOauthConsentRoute
-  Char91DotmcpChar93InvokeToolToolRoute: typeof Char91DotmcpChar93InvokeToolToolRoute
-  ApiPublicSubmitConsultationRoute: typeof ApiPublicSubmitConsultationRoute
-  ApiPublicSubmitVipConsultationRoute: typeof ApiPublicSubmitVipConsultationRoute
-  LovableEmailEventsRoute: typeof LovableEmailEventsRoute
-  ApiPublicHooksTreatmentFollowupRoute: typeof ApiPublicHooksTreatmentFollowupRoute
-  LovableEmailAuthPreviewRoute: typeof LovableEmailAuthPreviewRoute
-  LovableEmailAuthWebhookRoute: typeof LovableEmailAuthWebhookRoute
-  LovableEmailTransactionalPreviewRoute: typeof LovableEmailTransactionalPreviewRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -800,20 +339,6 @@ declare module '@tanstack/react-router' {
       path: '/about'
       fullPath: '/about'
       preLoaderRoute: typeof AboutRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/account': {
-      id: '/account'
-      path: '/account'
-      fullPath: '/account'
-      preLoaderRoute: typeof AccountRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/auth': {
-      id: '/auth'
-      path: '/auth'
-      fullPath: '/auth'
-      preLoaderRoute: typeof AuthRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/booking': {
@@ -837,13 +362,6 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ContactRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/dashboard': {
-      id: '/dashboard'
-      path: '/dashboard'
-      fullPath: '/dashboard'
-      preLoaderRoute: typeof DashboardRouteImport
-      parentRoute: typeof rootRouteImport
-    }
     '/faq': {
       id: '/faq'
       path: '/faq'
@@ -863,20 +381,6 @@ declare module '@tanstack/react-router' {
       path: '/journal'
       fullPath: '/journal'
       preLoaderRoute: typeof JournalRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/login': {
-      id: '/login'
-      path: '/login'
-      fullPath: '/login'
-      preLoaderRoute: typeof LoginRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/mcp': {
-      id: '/mcp'
-      path: '/mcp'
-      fullPath: '/mcp'
-      preLoaderRoute: typeof McpRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/packages': {
@@ -905,13 +409,6 @@ declare module '@tanstack/react-router' {
       path: '/reviews'
       fullPath: '/reviews'
       preLoaderRoute: typeof ReviewsRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/set-password': {
-      id: '/set-password'
-      path: '/set-password'
-      fullPath: '/set-password'
-      preLoaderRoute: typeof SetPasswordRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/sitemap.xml': {
@@ -956,118 +453,6 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof VisitingRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/.mcp/list-tools': {
-      id: '/.mcp/list-tools'
-      path: '/.mcp/list-tools'
-      fullPath: '/.mcp/list-tools'
-      preLoaderRoute: typeof Char91DotmcpChar93ListToolsRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/.well-known/oauth-protected-resource': {
-      id: '/.well-known/oauth-protected-resource'
-      path: '/.well-known/oauth-protected-resource'
-      fullPath: '/.well-known/oauth-protected-resource'
-      preLoaderRoute: typeof Char91DotwellKnownChar93OauthProtectedResourceRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/dashboard/': {
-      id: '/dashboard/'
-      path: '/'
-      fullPath: '/dashboard/'
-      preLoaderRoute: typeof DashboardIndexRouteImport
-      parentRoute: typeof DashboardRoute
-    }
-    '/dashboard/appointments': {
-      id: '/dashboard/appointments'
-      path: '/appointments'
-      fullPath: '/dashboard/appointments'
-      preLoaderRoute: typeof DashboardAppointmentsRouteImport
-      parentRoute: typeof DashboardRoute
-    }
-    '/dashboard/audit': {
-      id: '/dashboard/audit'
-      path: '/audit'
-      fullPath: '/dashboard/audit'
-      preLoaderRoute: typeof DashboardAuditRouteImport
-      parentRoute: typeof DashboardRoute
-    }
-    '/dashboard/consultations': {
-      id: '/dashboard/consultations'
-      path: '/consultations'
-      fullPath: '/dashboard/consultations'
-      preLoaderRoute: typeof DashboardConsultationsRouteImport
-      parentRoute: typeof DashboardRoute
-    }
-    '/dashboard/customers': {
-      id: '/dashboard/customers'
-      path: '/customers'
-      fullPath: '/dashboard/customers'
-      preLoaderRoute: typeof DashboardCustomersRouteImport
-      parentRoute: typeof DashboardRoute
-    }
-    '/dashboard/email-previews': {
-      id: '/dashboard/email-previews'
-      path: '/email-previews'
-      fullPath: '/dashboard/email-previews'
-      preLoaderRoute: typeof DashboardEmailPreviewsRouteImport
-      parentRoute: typeof DashboardRoute
-    }
-    '/dashboard/employees': {
-      id: '/dashboard/employees'
-      path: '/employees'
-      fullPath: '/dashboard/employees'
-      preLoaderRoute: typeof DashboardEmployeesRouteImport
-      parentRoute: typeof DashboardRoute
-    }
-    '/dashboard/interests': {
-      id: '/dashboard/interests'
-      path: '/interests'
-      fullPath: '/dashboard/interests'
-      preLoaderRoute: typeof DashboardInterestsRouteImport
-      parentRoute: typeof DashboardRoute
-    }
-    '/dashboard/marketing': {
-      id: '/dashboard/marketing'
-      path: '/marketing'
-      fullPath: '/dashboard/marketing'
-      preLoaderRoute: typeof DashboardMarketingRouteImport
-      parentRoute: typeof DashboardRoute
-    }
-    '/dashboard/reports': {
-      id: '/dashboard/reports'
-      path: '/reports'
-      fullPath: '/dashboard/reports'
-      preLoaderRoute: typeof DashboardReportsRouteImport
-      parentRoute: typeof DashboardRoute
-    }
-    '/dashboard/sales': {
-      id: '/dashboard/sales'
-      path: '/sales'
-      fullPath: '/dashboard/sales'
-      preLoaderRoute: typeof DashboardSalesRouteImport
-      parentRoute: typeof DashboardRoute
-    }
-    '/dashboard/services': {
-      id: '/dashboard/services'
-      path: '/services'
-      fullPath: '/dashboard/services'
-      preLoaderRoute: typeof DashboardServicesRouteImport
-      parentRoute: typeof DashboardRoute
-    }
-    '/dashboard/settings': {
-      id: '/dashboard/settings'
-      path: '/settings'
-      fullPath: '/dashboard/settings'
-      preLoaderRoute: typeof DashboardSettingsRouteImport
-      parentRoute: typeof DashboardRoute
-    }
-    '/dashboard/therapists': {
-      id: '/dashboard/therapists'
-      path: '/therapists'
-      fullPath: '/dashboard/therapists'
-      preLoaderRoute: typeof DashboardTherapistsRouteImport
-      parentRoute: typeof DashboardRoute
-    }
     '/journal/': {
       id: '/journal/'
       path: '/'
@@ -1103,193 +488,8 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ServicesSlugRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/.lovable/oauth/consent': {
-      id: '/.lovable/oauth/consent'
-      path: '/.lovable/oauth/consent'
-      fullPath: '/.lovable/oauth/consent'
-      preLoaderRoute: typeof DotlovableOauthConsentRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/.mcp/invoke-tool/$tool': {
-      id: '/.mcp/invoke-tool/$tool'
-      path: '/.mcp/invoke-tool/$tool'
-      fullPath: '/.mcp/invoke-tool/$tool'
-      preLoaderRoute: typeof Char91DotmcpChar93InvokeToolToolRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/api/public/submit-consultation': {
-      id: '/api/public/submit-consultation'
-      path: '/api/public/submit-consultation'
-      fullPath: '/api/public/submit-consultation'
-      preLoaderRoute: typeof ApiPublicSubmitConsultationRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/api/public/submit-vip-consultation': {
-      id: '/api/public/submit-vip-consultation'
-      path: '/api/public/submit-vip-consultation'
-      fullPath: '/api/public/submit-vip-consultation'
-      preLoaderRoute: typeof ApiPublicSubmitVipConsultationRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/dashboard/appointments/': {
-      id: '/dashboard/appointments/'
-      path: '/'
-      fullPath: '/dashboard/appointments/'
-      preLoaderRoute: typeof DashboardAppointmentsIndexRouteImport
-      parentRoute: typeof DashboardAppointmentsRoute
-    }
-    '/dashboard/appointments/$id': {
-      id: '/dashboard/appointments/$id'
-      path: '/$id'
-      fullPath: '/dashboard/appointments/$id'
-      preLoaderRoute: typeof DashboardAppointmentsIdRouteImport
-      parentRoute: typeof DashboardAppointmentsRoute
-    }
-    '/dashboard/customers/': {
-      id: '/dashboard/customers/'
-      path: '/'
-      fullPath: '/dashboard/customers/'
-      preLoaderRoute: typeof DashboardCustomersIndexRouteImport
-      parentRoute: typeof DashboardCustomersRoute
-    }
-    '/dashboard/customers/$id': {
-      id: '/dashboard/customers/$id'
-      path: '/$id'
-      fullPath: '/dashboard/customers/$id'
-      preLoaderRoute: typeof DashboardCustomersIdRouteImport
-      parentRoute: typeof DashboardCustomersRoute
-    }
-    '/dashboard/sales/': {
-      id: '/dashboard/sales/'
-      path: '/'
-      fullPath: '/dashboard/sales/'
-      preLoaderRoute: typeof DashboardSalesIndexRouteImport
-      parentRoute: typeof DashboardSalesRoute
-    }
-    '/dashboard/sales/$id': {
-      id: '/dashboard/sales/$id'
-      path: '/$id'
-      fullPath: '/dashboard/sales/$id'
-      preLoaderRoute: typeof DashboardSalesIdRouteImport
-      parentRoute: typeof DashboardSalesRoute
-    }
-    '/lovable/email/events': {
-      id: '/lovable/email/events'
-      path: '/lovable/email/events'
-      fullPath: '/lovable/email/events'
-      preLoaderRoute: typeof LovableEmailEventsRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/api/public/hooks/treatment-followup': {
-      id: '/api/public/hooks/treatment-followup'
-      path: '/api/public/hooks/treatment-followup'
-      fullPath: '/api/public/hooks/treatment-followup'
-      preLoaderRoute: typeof ApiPublicHooksTreatmentFollowupRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/lovable/email/auth/preview': {
-      id: '/lovable/email/auth/preview'
-      path: '/lovable/email/auth/preview'
-      fullPath: '/lovable/email/auth/preview'
-      preLoaderRoute: typeof LovableEmailAuthPreviewRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/lovable/email/auth/webhook': {
-      id: '/lovable/email/auth/webhook'
-      path: '/lovable/email/auth/webhook'
-      fullPath: '/lovable/email/auth/webhook'
-      preLoaderRoute: typeof LovableEmailAuthWebhookRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/lovable/email/transactional/preview': {
-      id: '/lovable/email/transactional/preview'
-      path: '/lovable/email/transactional/preview'
-      fullPath: '/lovable/email/transactional/preview'
-      preLoaderRoute: typeof LovableEmailTransactionalPreviewRouteImport
-      parentRoute: typeof rootRouteImport
-    }
   }
 }
-
-interface DashboardAppointmentsRouteChildren {
-  DashboardAppointmentsIdRoute: typeof DashboardAppointmentsIdRoute
-  DashboardAppointmentsIndexRoute: typeof DashboardAppointmentsIndexRoute
-}
-
-const DashboardAppointmentsRouteChildren: DashboardAppointmentsRouteChildren = {
-  DashboardAppointmentsIdRoute: DashboardAppointmentsIdRoute,
-  DashboardAppointmentsIndexRoute: DashboardAppointmentsIndexRoute,
-}
-
-const DashboardAppointmentsRouteWithChildren =
-  DashboardAppointmentsRoute._addFileChildren(
-    DashboardAppointmentsRouteChildren,
-  )
-
-interface DashboardCustomersRouteChildren {
-  DashboardCustomersIdRoute: typeof DashboardCustomersIdRoute
-  DashboardCustomersIndexRoute: typeof DashboardCustomersIndexRoute
-}
-
-const DashboardCustomersRouteChildren: DashboardCustomersRouteChildren = {
-  DashboardCustomersIdRoute: DashboardCustomersIdRoute,
-  DashboardCustomersIndexRoute: DashboardCustomersIndexRoute,
-}
-
-const DashboardCustomersRouteWithChildren =
-  DashboardCustomersRoute._addFileChildren(DashboardCustomersRouteChildren)
-
-interface DashboardSalesRouteChildren {
-  DashboardSalesIdRoute: typeof DashboardSalesIdRoute
-  DashboardSalesIndexRoute: typeof DashboardSalesIndexRoute
-}
-
-const DashboardSalesRouteChildren: DashboardSalesRouteChildren = {
-  DashboardSalesIdRoute: DashboardSalesIdRoute,
-  DashboardSalesIndexRoute: DashboardSalesIndexRoute,
-}
-
-const DashboardSalesRouteWithChildren = DashboardSalesRoute._addFileChildren(
-  DashboardSalesRouteChildren,
-)
-
-interface DashboardRouteChildren {
-  DashboardAppointmentsRoute: typeof DashboardAppointmentsRouteWithChildren
-  DashboardAuditRoute: typeof DashboardAuditRoute
-  DashboardConsultationsRoute: typeof DashboardConsultationsRoute
-  DashboardCustomersRoute: typeof DashboardCustomersRouteWithChildren
-  DashboardEmailPreviewsRoute: typeof DashboardEmailPreviewsRoute
-  DashboardEmployeesRoute: typeof DashboardEmployeesRoute
-  DashboardInterestsRoute: typeof DashboardInterestsRoute
-  DashboardMarketingRoute: typeof DashboardMarketingRoute
-  DashboardReportsRoute: typeof DashboardReportsRoute
-  DashboardSalesRoute: typeof DashboardSalesRouteWithChildren
-  DashboardServicesRoute: typeof DashboardServicesRoute
-  DashboardSettingsRoute: typeof DashboardSettingsRoute
-  DashboardTherapistsRoute: typeof DashboardTherapistsRoute
-  DashboardIndexRoute: typeof DashboardIndexRoute
-}
-
-const DashboardRouteChildren: DashboardRouteChildren = {
-  DashboardAppointmentsRoute: DashboardAppointmentsRouteWithChildren,
-  DashboardAuditRoute: DashboardAuditRoute,
-  DashboardConsultationsRoute: DashboardConsultationsRoute,
-  DashboardCustomersRoute: DashboardCustomersRouteWithChildren,
-  DashboardEmailPreviewsRoute: DashboardEmailPreviewsRoute,
-  DashboardEmployeesRoute: DashboardEmployeesRoute,
-  DashboardInterestsRoute: DashboardInterestsRoute,
-  DashboardMarketingRoute: DashboardMarketingRoute,
-  DashboardReportsRoute: DashboardReportsRoute,
-  DashboardSalesRoute: DashboardSalesRouteWithChildren,
-  DashboardServicesRoute: DashboardServicesRoute,
-  DashboardSettingsRoute: DashboardSettingsRoute,
-  DashboardTherapistsRoute: DashboardTherapistsRoute,
-  DashboardIndexRoute: DashboardIndexRoute,
-}
-
-const DashboardRouteWithChildren = DashboardRoute._addFileChildren(
-  DashboardRouteChildren,
-)
 
 interface JournalRouteChildren {
   JournalSlugRoute: typeof JournalSlugRoute
@@ -1307,43 +507,25 @@ const JournalRouteWithChildren =
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   AboutRoute: AboutRoute,
-  AccountRoute: AccountRoute,
-  AuthRoute: AuthRoute,
   BookingRoute: BookingRoute,
   CertificationsRoute: CertificationsRoute,
   ContactRoute: ContactRoute,
-  DashboardRoute: DashboardRouteWithChildren,
   FaqRoute: FaqRoute,
   GalleryRoute: GalleryRoute,
   JournalRoute: JournalRouteWithChildren,
-  LoginRoute: LoginRoute,
-  McpRoute: McpRoute,
   PackagesRoute: PackagesRoute,
   PoliciesRoute: PoliciesRoute,
   ProductsRoute: ProductsRoute,
   ReviewsRoute: ReviewsRoute,
-  SetPasswordRoute: SetPasswordRoute,
   SitemapDotxmlRoute: SitemapDotxmlRoute,
   TimelineRoute: TimelineRoute,
   TreatmentFinderRoute: TreatmentFinderRoute,
   VipRoute: VipRoute,
   VipconsultRoute: VipconsultRoute,
   VisitingRoute: VisitingRoute,
-  Char91DotmcpChar93ListToolsRoute: Char91DotmcpChar93ListToolsRoute,
-  Char91DotwellKnownChar93OauthProtectedResourceRoute:
-    Char91DotwellKnownChar93OauthProtectedResourceRoute,
   LocationsSlugRoute: LocationsSlugRoute,
   ServicesSlugRoute: ServicesSlugRoute,
   ServicesIndexRoute: ServicesIndexRoute,
-  DotlovableOauthConsentRoute: DotlovableOauthConsentRoute,
-  Char91DotmcpChar93InvokeToolToolRoute: Char91DotmcpChar93InvokeToolToolRoute,
-  ApiPublicSubmitConsultationRoute: ApiPublicSubmitConsultationRoute,
-  ApiPublicSubmitVipConsultationRoute: ApiPublicSubmitVipConsultationRoute,
-  LovableEmailEventsRoute: LovableEmailEventsRoute,
-  ApiPublicHooksTreatmentFollowupRoute: ApiPublicHooksTreatmentFollowupRoute,
-  LovableEmailAuthPreviewRoute: LovableEmailAuthPreviewRoute,
-  LovableEmailAuthWebhookRoute: LovableEmailAuthWebhookRoute,
-  LovableEmailTransactionalPreviewRoute: LovableEmailTransactionalPreviewRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)

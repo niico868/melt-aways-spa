@@ -3,10 +3,11 @@ import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { ArrowRight, ArrowLeft, Check, Sparkles, MessageCircle } from "lucide-react";
 import { Section, Eyebrow } from "@/components/Section";
-import { saveLead, waLink, PACKAGES } from "@/lib/site";
+import { waLink, PACKAGES } from "@/lib/site";
 import { postEnquiry } from "@/lib/booking-api";
+import { EnquiryError } from "@/components/EnquiryError";
 import {
-  FINDER_GOALS, FINDER_AREAS, suggestPackage, qualifiesForConsult, toLead,
+  FINDER_GOALS, FINDER_AREAS, suggestPackage, qualifiesForConsult,
   type FinderAnswers,
 } from "@/lib/treatment-finder";
 import { easeLux } from "@/lib/motion";
@@ -35,6 +36,8 @@ function TreatmentFinderPage() {
   const [step, setStep] = useState(0);
   const [a, setA] = useState<FinderAnswers>(EMPTY);
   const [done, setDone] = useState<null | { suggested: string; qualifies: boolean }>(null);
+  const [submitting, setSubmitting] = useState(false);
+  const [sendFailed, setSendFailed] = useState(false);
 
   const total = STEPS.length;
   const progress = ((step + 1) / total) * 100;
@@ -52,31 +55,9 @@ function TreatmentFinderPage() {
   async function submit() {
     const suggested = suggestPackage(a);
     const qualifies = qualifiesForConsult(a);
-    try { saveLead(toLead(a, suggested)); } catch {}
-    setDone({ suggested, qualifies });
-    try {
-      await fetch("/api/public/submit-consultation", {
-        method: "POST",
-        headers: { "content-type": "application/json" },
-        body: JSON.stringify({
-          full_name: a.fullName,
-          phone: a.phone,
-          email: a.email,
-          concern: a.concerns,
-          areas: a.targetAreas.join(", "),
-          notes: [
-            a.goals.length && `Goals: ${a.goals.join(", ")}`,
-            a.timeline && `Timeline: ${a.timeline}`,
-            a.medications && `Medications: ${a.medications}`,
-            a.pregnancy && `Pregnancy: ${a.pregnancy}`,
-          ].filter(Boolean).join("\n"),
-          preferred_date: a.preferredDate,
-          suggested_package: suggested,
-        }),
-      });
-    } catch { /* non-blocking */ }
-    // Also forward the enquiry to the salon booking API (non-blocking, silent on failure)
-    void postEnquiry({
+    setSubmitting(true);
+    setSendFailed(false);
+    const ok = await postEnquiry({
       source: "treatment-finder",
       name: a.fullName,
       phone: a.phone,
@@ -93,6 +74,9 @@ function TreatmentFinderPage() {
         a.preferredDate && `Preferred date: ${a.preferredDate}`,
       ].filter(Boolean).join(". "),
     });
+    setSubmitting(false);
+    if (ok) setDone({ suggested, qualifies });
+    else setSendFailed(true);
   }
 
   const canNext = (() => {
@@ -237,12 +221,16 @@ function TreatmentFinderPage() {
           ) : (
             <button
               onClick={submit}
-              className="inline-flex items-center gap-2 rounded-full bg-fresh text-fresh-foreground px-7 py-3 text-sm font-medium btn-lux soft-shadow"
+              disabled={submitting}
+              className="inline-flex items-center gap-2 rounded-full bg-fresh text-fresh-foreground px-7 py-3 text-sm font-medium btn-lux soft-shadow disabled:opacity-60"
             >
-              See My Match <Sparkles className="w-4 h-4" />
+              {submitting ? "Sending…" : <>See My Match <Sparkles className="w-4 h-4" /></>}
             </button>
           )}
         </div>
+        {sendFailed && (
+          <EnquiryError message={`Hi Melt Aways, I tried the Treatment Finder but it wouldn't send. My name is ${a.fullName}.`} />
+        )}
       </div>
     </Section>
   );

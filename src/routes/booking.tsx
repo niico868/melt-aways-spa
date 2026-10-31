@@ -114,26 +114,6 @@ function Booking() {
       if (r.status === 201) {
         setDone({ service: service.name, date, time });
         window.scrollTo({ top: 0, behavior: "smooth" });
-        // Also save to Lovable Cloud and send the owner's email + WhatsApp alerts.
-        // Never blocks the confirmation; only runs after a 201.
-        try {
-          await fetch("/api/public/submit-consultation", {
-            method: "POST",
-            headers: { "content-type": "application/json" },
-            body: JSON.stringify({
-              full_name: name,
-              phone,
-              email,
-              concern: service.name,
-              notes,
-              preferred_date: date,
-              preferred_time: formatTime(time),
-              suggested_package: service.name,
-            }),
-          });
-        } catch (e) {
-          console.log("Lovable Cloud booking save failed:", e);
-        }
       } else if (r.status === 409) {
         setError("Sorry, that time was just taken. Please pick another time.");
         setTime("");

@@ -1,9 +1,8 @@
-import { Link, useNavigate } from "@tanstack/react-router";
+import { Link } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
-import { Menu, X, User } from "lucide-react";
+import { Menu, X } from "lucide-react";
 import { Logo } from "./Logo";
 import { NAV, NAV_LEFT, NAV_RIGHT } from "@/lib/site";
-import { getSession, signOut, type ClientProfile } from "@/lib/auth";
 
 function NavLink({ to, label, flag, linkClass }: { to: string; label: string; flag?: boolean; linkClass: string }) {
   return (
@@ -19,17 +18,8 @@ function NavLink({ to, label, flag, linkClass }: { to: string; label: string; fl
 }
 
 export function Header() {
-  const nav = useNavigate();
   const [open, setOpen] = useState(false);
-  const [user, setUser] = useState<ClientProfile | null>(null);
   const [hidden, setHidden] = useState(false);
-  useEffect(() => {
-    const sync = () => setUser(getSession());
-    sync();
-    window.addEventListener("meltaways:auth", sync);
-    window.addEventListener("storage", sync);
-    return () => { window.removeEventListener("meltaways:auth", sync); window.removeEventListener("storage", sync); };
-  }, []);
   useEffect(() => {
     let lastY = window.scrollY;
     const onScroll = () => {
@@ -42,7 +32,6 @@ export function Header() {
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
-  const accountLink: "/account" | "/dashboard" = user?.role === "client" ? "/account" : "/dashboard";
   const linkClass = "nav-underline text-[13px] font-semibold tracking-[0.08em] uppercase text-foreground/85 hover:text-primary transition-colors";
   return (
     <header className={`sticky top-0 z-40 glass-nav border-b border-border/40 header-fade transition-transform duration-300 ease-out ${hidden ? "-translate-y-full" : "translate-y-0"}`}>
@@ -66,18 +55,6 @@ export function Header() {
               <NavLink key={n.to} to={n.to} label={n.label} flag={n.flag} linkClass={linkClass} />
             ))}
           </nav>
-          {user ? (
-            <div className="flex items-center gap-3">
-              <Link to={accountLink} className="inline-flex items-center gap-2 rounded-full border border-border bg-background/80 px-4 py-2 text-[13px] font-semibold text-foreground/85 hover:border-primary hover:text-primary transition">
-                <User className="w-4 h-4" /> {user.fullName.split(" ")[0]}
-              </Link>
-              <button onClick={() => { signOut(); nav({ to: "/" }); }} className="text-[13px] font-semibold text-taupe hover:text-primary">Sign out</button>
-            </div>
-          ) : (
-            <Link to="/login" className="inline-flex items-center gap-2 rounded-full border border-border bg-background/80 px-4 py-2 text-[13px] font-semibold text-foreground/85 hover:border-primary hover:text-primary transition">
-              <User className="w-4 h-4" /> Account
-            </Link>
-          )}
         </div>
 
         {/* MOBILE TOGGLE */}
@@ -92,11 +69,6 @@ export function Header() {
               <Link key={n.to} to={n.to} onClick={() => setOpen(false)}
                 className="py-2 text-base text-foreground/80">{n.label}</Link>
             ))}
-            {user ? (
-              <Link to={accountLink} onClick={() => setOpen(false)} className="py-2 text-base text-foreground/80">My Account</Link>
-            ) : (
-              <Link to="/login" onClick={() => setOpen(false)} className="py-2 text-base text-foreground/80">Account</Link>
-            )}
             <Link to="/booking" onClick={() => setOpen(false)}
               className="mt-3 inline-flex justify-center rounded-full bg-primary text-primary-foreground px-5 py-3 font-medium">
               Book Consultation

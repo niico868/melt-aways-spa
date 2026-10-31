@@ -4,6 +4,7 @@ import { Plane, MessageCircle, Check } from "lucide-react";
 import { Section, Eyebrow } from "@/components/Section";
 import { CONCIERGE_WA, CONCIERGE_MESSAGE, waLink, waClick } from "@/lib/site";
 import { postEnquiry } from "@/lib/booking-api";
+import { EnquiryError } from "@/components/EnquiryError";
 
 export const Route = createFileRoute("/visiting")({
   head: () => ({ meta: [
@@ -17,6 +18,8 @@ export const Route = createFileRoute("/visiting")({
 
 function Visiting() {
   const [done, setDone] = useState(false);
+  const [submitting, setSubmitting] = useState(false);
+  const [sendFailed, setSendFailed] = useState(false);
   const [form, setForm] = useState({
     name: "", email: "", country: "", arrival: "", departure: "", occasion: "", interest: "",
     concern: "", whatsapp: "", urgency: "", priorTreatments: "", priorList: [] as string[], medical: "",
@@ -42,33 +45,9 @@ function Visiting() {
       `Medical conditions or medications: ${form.medical}`,
     ].join("\n");
     window.open(waLink(msg), "_blank", "noopener,noreferrer");
-    setDone(true);
-    // Record the lead and trigger the consultation confirmation email
-    try {
-      await fetch("/api/public/submit-consultation", {
-        method: "POST",
-        headers: { "content-type": "application/json" },
-        body: JSON.stringify({
-          full_name: form.name,
-          phone: form.whatsapp,
-          email: form.email,
-          concern: form.concern,
-          areas: form.interest,
-          notes: [
-            `Visiting Trinidad — ${form.country}`,
-            `Travel: ${form.arrival} to ${form.departure}`,
-            form.occasion && `Occasion: ${form.occasion}`,
-            form.urgency && `Results timing: ${form.urgency}`,
-            form.medical && `Medical: ${form.medical}`,
-          ].filter(Boolean).join("\n"),
-          preferred_date: form.arrival,
-          location: "Visiting Trinidad",
-          suggested_package: form.interest,
-        }),
-      });
-    } catch { /* non-blocking */ }
-    // Also forward the enquiry to the salon booking API (non-blocking, silent on failure)
-    void postEnquiry({
+    setSubmitting(true);
+    setSendFailed(false);
+    const ok = await postEnquiry({
       source: "visit",
       name: form.name,
       phone: form.whatsapp,
@@ -84,6 +63,9 @@ function Visiting() {
         form.medical && `Medical: ${form.medical}`,
       ].filter(Boolean).join(". "),
     });
+    setSubmitting(false);
+    if (ok) setDone(true);
+    else setSendFailed(true);
   }
 
   return (
@@ -186,13 +168,16 @@ function Visiting() {
           </Row>
           <p className="text-xs text-taupe italic">Submitting opens WhatsApp so our concierge can confirm details and recommend the right plan. No diagnosis is provided online.</p>
           <div className="flex flex-wrap gap-3">
-            <button type="submit" className="rounded-full bg-primary text-primary-foreground px-7 py-4 font-medium soft-shadow hover:opacity-90 transition">
+            <button type="submit" disabled={submitting} className="disabled:opacity-60 rounded-full bg-primary text-primary-foreground px-7 py-4 font-medium soft-shadow hover:opacity-90 transition">
               Plan My Visit
             </button>
-            <button type="submit" className="rounded-full bg-[#25D366] text-white px-7 py-4 font-medium hover:opacity-90 transition inline-flex items-center gap-2">
+            <button type="submit" disabled={submitting} className="disabled:opacity-60 rounded-full bg-[#25D366] text-white px-7 py-4 font-medium hover:opacity-90 transition inline-flex items-center gap-2">
               <MessageCircle className="w-4 h-4" /> Submit and Message Us
             </button>
           </div>
+          {sendFailed && (
+            <EnquiryError message={`Hi Melt Aways, I'm visiting Trinidad and tried your form but it wouldn't send. My name is ${form.name}.`} />
+          )}
         </form>
       )}
     </Section>
