@@ -14,12 +14,12 @@ import { CertProviderStrip } from "@/components/CertProviderStrip";
 import { VipProgram } from "@/components/VipProgram";
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog";
 import { BA_IMAGES } from "@/lib/ba";
-import heroBanner from "@/assets/hero-banner-treatment.png.asset.json";
-import maVisiting from "@/assets/ma-visiting.png.asset.json";
-import homeToning from "@/assets/treatments/Muscle_Toning.png.asset.json";
-import homeSkinTightening from "@/assets/treatments/Skin_Tightening.png.asset.json";
-import homeCavitation from "@/assets/treatments/Cavitation.jpg.asset.json";
-import homeButtFiller from "@/assets/treatments/Butt_Lift.png.asset.json";
+import heroBanner from "@/assets/hero-banner-treatment.png.media.json";
+import maVisiting from "@/assets/ma-visiting.png.media.json";
+import homeToning from "@/assets/treatments/Muscle_Toning.png.media.json";
+import homeSkinTightening from "@/assets/treatments/Skin_Tightening.png.media.json";
+import homeCavitation from "@/assets/treatments/Cavitation.jpg.media.json";
+import homeButtFiller from "@/assets/treatments/Butt_Lift.png.media.json";
 
 export const Route = createFileRoute("/")({
   head: () => ({

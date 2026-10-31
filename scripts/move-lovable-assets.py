@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Copy every image/audio file the site keeps on Lovable's servers into this repo.
 
-Each src/assets/**/*.asset.json points at a file served from Lovable at
+Each src/assets/**/*.media.json points at a file served from Lovable at
 /__l5e/assets-v1/<id>/<name>. That path only exists on Lovable hosting, so on
 Cloudflare those images break. This script downloads each file from the live
 Lovable site into public/media/<id>/<name> (served by Cloudflare as a static
@@ -23,7 +23,7 @@ ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 moved, skipped, failed = [], [], []
 
-for path in sorted(glob.glob(os.path.join(ROOT, "src/assets/**/*.asset.json"), recursive=True)):
+for path in sorted(glob.glob(os.path.join(ROOT, "src/assets/**/*.media.json"), recursive=True)):
     with open(path) as f:
         meta = json.load(f)
     url = meta["url"]

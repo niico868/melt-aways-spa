@@ -1,7 +1,7 @@
 import { Link } from "@tanstack/react-router";
 import { Instagram, Facebook, Phone, Mail, MapPin, Clock } from "lucide-react";
 import { SITE, NAV } from "@/lib/site";
-import newMasLogo from "@/assets/melt-aways-logo-v4.png.asset.json";
+import newMasLogo from "@/assets/melt-aways-logo-v4.png.media.json";
 
 export function Footer() {
   return (

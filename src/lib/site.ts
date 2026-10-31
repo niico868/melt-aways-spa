@@ -1,5 +1,5 @@
-import logoAsset from "@/assets/logo.asset.json";
-import meaLogoAsset from "@/assets/mea-logo.png.asset.json";
+import logoAsset from "@/assets/logo.media.json";
+import meaLogoAsset from "@/assets/mea-logo.png.media.json";
 
 export const SITE = {
   name: "Melt Aways",

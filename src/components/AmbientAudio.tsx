@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import { Volume2, VolumeX } from "lucide-react";
-import ambienceAsset from "@/assets/ambience.mp3.asset.json";
+import ambienceAsset from "@/assets/ambience.mp3.media.json";
 
 const STORAGE_KEY = "meltaways:ambience";
 const TARGET_VOLUME = 0.45;

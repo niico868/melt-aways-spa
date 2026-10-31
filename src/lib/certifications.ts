@@ -1,12 +1,12 @@
-import morpheus from "@/assets/certs/Morpheus_8.png.asset.json";
-import buttLifting from "@/assets/certs/Butt_Lifting.png.asset.json";
-import fatDissolving from "@/assets/certs/Fat_Dissolving.png.asset.json";
-import breastAug from "@/assets/certs/Breast_Augmentation.png.asset.json";
-import stretchMark from "@/assets/certs/Stretch_Mark_Therapy.png.asset.json";
-import microneedling from "@/assets/certs/Micro-needling.png.asset.json";
-import basicFacial from "@/assets/certs/Basic_Facial.png.asset.json";
-import cavitation from "@/assets/certs/Cavitation.png.asset.json";
-import phlebotomy from "@/assets/certs/Phlebotomy.png.asset.json";
+import morpheus from "@/assets/certs/Morpheus_8.png.media.json";
+import buttLifting from "@/assets/certs/Butt_Lifting.png.media.json";
+import fatDissolving from "@/assets/certs/Fat_Dissolving.png.media.json";
+import breastAug from "@/assets/certs/Breast_Augmentation.png.media.json";
+import stretchMark from "@/assets/certs/Stretch_Mark_Therapy.png.media.json";
+import microneedling from "@/assets/certs/Micro-needling.png.media.json";
+import basicFacial from "@/assets/certs/Basic_Facial.png.media.json";
+import cavitation from "@/assets/certs/Cavitation.png.media.json";
+import phlebotomy from "@/assets/certs/Phlebotomy.png.media.json";
 
 export type Certification = {
   id: string;
