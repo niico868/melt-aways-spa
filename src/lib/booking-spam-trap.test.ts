@@ -33,12 +33,6 @@ describe("hidden spam-trap field", () => {
     expect(src).not.toMatch(/\bcompany\b/);
   });
 
-  it("the VIP server route still rejects a filled trap", () => {
-    const src = read("src/routes/api/public/submit-vip-consultation.ts");
-    expect(src).toContain("body.mk_hp");
-    expect(src).not.toMatch(/\bcompany\b/);
-  });
-
   it("every form that has the trap keeps it hidden", () => {
     const src = read("src/routes/booking.tsx");
     const line = src.split("\n").find((l) => l.includes('name="mk_hp"')) ?? "";

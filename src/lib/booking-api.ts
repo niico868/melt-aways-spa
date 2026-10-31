@@ -13,10 +13,12 @@ export function normalizeServiceName(name: string): string {
 }
 
 /**
- * Fire-and-forget enquiry forward to the salon booking API.
- * Never throws, never shows errors to the customer — failures are only
- * logged to the console because the submission is already saved in
- * Lovable Cloud.
+ * Send an enquiry to the salon dashboard API.
+ * This is the only place form enquiries are delivered — the website no
+ * longer saves them to Lovable Cloud — so callers must check the result.
+ * Never throws. Resolves `true` when the API accepted the enquiry (2xx),
+ * `false` on any network error or non-2xx response, so the form can show
+ * the client an error with the salon's phone/WhatsApp instead.
  */
 export async function postEnquiry(payload: {
   source: "treatment-finder" | "consultation" | "visit" | "contact";
@@ -25,14 +27,20 @@ export async function postEnquiry(payload: {
   email?: string;
   message: string;
   mk_hp?: string;
-}): Promise<void> {
+}): Promise<boolean> {
   try {
-    await fetch(BOOKING_API_URL, {
+    const res = await fetch(BOOKING_API_URL, {
       method: "POST",
       headers: { "content-type": "application/json" },
       body: JSON.stringify({ type: "enquiry", mk_hp: "", ...payload }),
     });
+    if (!res.ok) {
+      console.log("Salon booking API rejected enquiry:", res.status);
+      return false;
+    }
+    return true;
   } catch (err) {
-    console.log("Salon booking API enquiry forward failed:", err);
+    console.log("Salon booking API enquiry failed:", err);
+    return false;
   }
 }

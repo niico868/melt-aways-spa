@@ -2,7 +2,7 @@ import { useState } from "react";
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { Crown, Phone, Check, ArrowLeft, ArrowRight, Loader2 } from "lucide-react";
 import { Section } from "@/components/Section";
-import { waLink } from "@/lib/site";
+import { SITE, waLink } from "@/lib/site";
 import { postEnquiry } from "@/lib/booking-api";
 import {
   VIP_GOALS, VIP_AREAS, VIP_HEALTH_QUESTIONS, VIP_START_PERIODS,
@@ -143,37 +143,55 @@ function VipConsultPage() {
     }
     setStatus("sending");
     setErrMsg("");
-    try {
-      const res = await fetch("/api/public/submit-vip-consultation", {
-        method: "POST",
-        headers: { "content-type": "application/json" },
-        body: JSON.stringify({ ...f, mk_hp: honeypot }),
-      });
-      const json = await res.json();
-      if (!res.ok) throw new Error(json?.error || "Submission failed");
+    // The salon dashboard API is now the only place this request is saved,
+    // so include every answer the team needs for the consultation.
+    const health = VIP_HEALTH_QUESTIONS
+      .map((q) => {
+        const a = f.health[q.key];
+        if (!a?.answer) return "";
+        return `${q.label} ${a.answer}${a.details ? ` (${a.details})` : ""}`;
+      })
+      .filter(Boolean);
+    const ok = await postEnquiry({
+      source: "consultation",
+      name: f.full_name,
+      phone: f.phone,
+      email: f.email,
+      message: [
+        "VIP consultation request",
+        f.preferred_contact && `Preferred contact: ${f.preferred_contact}`,
+        f.location && `Location: ${f.location}`,
+        f.preferred_date && `Preferred date: ${f.preferred_date}`,
+        f.preferred_time && `Preferred time: ${f.preferred_time}`,
+        f.primary_goal && `Primary goal: ${f.primary_goal}`,
+        f.goals.length && `Goals: ${f.goals.join(", ")}${f.goals_other ? ` (${f.goals_other})` : ""}`,
+        f.target_areas.length && `Target areas: ${f.target_areas.join(", ")}${f.target_areas_other ? ` (${f.target_areas_other})` : ""}`,
+        f.worthwhile && `What would make it worthwhile: ${f.worthwhile}`,
+        f.prior_treatments && `Prior treatments: ${f.prior_treatments}${f.prior_treatments_detail ? ` (${f.prior_treatments_detail})` : ""}`,
+        f.event_related && `Event related: ${f.event_related}${f.event_date ? ` (${f.event_date})` : ""}`,
+        f.current_weight && `Current weight: ${f.current_weight}`,
+        f.goal_weight && `Goal weight: ${f.goal_weight}`,
+        f.start_period && `Start: ${f.start_period}`,
+        f.weekly_ok && `Weekly OK: ${f.weekly_ok}`,
+        f.biweekly_ok && `Every two weeks OK: ${f.biweekly_ok}`,
+        f.best_days && `Best days: ${f.best_days}`,
+        f.open_three_months && `Open to 3 months: ${f.open_three_months}`,
+        f.open_six_months && `Open to 6 months: ${f.open_six_months}`,
+        f.monthly_payment_ok && `Monthly payment OK: ${f.monthly_payment_ok}`,
+        f.wants_payment_info && `Wants payment info: ${f.wants_payment_info}`,
+        f.support_level && `Support level: ${f.support_level}`,
+        f.attendance_barriers && `Attendance barriers: ${f.attendance_barriers}`,
+        health.length && `Health: ${health.join("; ")}`,
+        f.health_other && `Other health notes: ${f.health_other}`,
+      ].filter(Boolean).join(". "),
+      mk_hp: honeypot,
+    });
+    if (ok) {
       setStatus("done");
       window.scrollTo({ top: 0, behavior: "smooth" });
-      // Also forward the enquiry to the salon booking API (non-blocking, silent on failure)
-      void postEnquiry({
-        source: "consultation",
-        name: f.full_name,
-        phone: f.phone,
-        email: f.email,
-        message: [
-          "VIP consultation request",
-          f.primary_goal && `Primary goal: ${f.primary_goal}`,
-          f.goals.length && `Goals: ${f.goals.join(", ")}`,
-          f.target_areas.length && `Target areas: ${f.target_areas.join(", ")}`,
-          f.start_period && `Start: ${f.start_period}`,
-          f.preferred_date && `Preferred date: ${f.preferred_date}`,
-          f.preferred_time && `Preferred time: ${f.preferred_time}`,
-          f.location && `Location: ${f.location}`,
-        ].filter(Boolean).join(". "),
-        mk_hp: honeypot,
-      });
-    } catch (err: any) {
+    } else {
       setStatus("error");
-      setErrMsg(err?.message || "Something went wrong. Please call or WhatsApp us instead.");
+      setErrMsg(`Sorry, we couldn't send your request just now. Please call us on ${SITE.phone} or message us on WhatsApp.`);
     }
   }
 
@@ -486,6 +504,14 @@ function VipConsultPage() {
                 {status === "error" && errMsg && (
                   <p className="mt-5 rounded-lg border border-destructive/30 bg-destructive/5 px-4 py-3 text-sm text-destructive" role="alert">
                     {errMsg}
+                    {errMsg !== "Please complete the highlighted fields." && (
+                      <>
+                        {" "}
+                        <a href={`tel:+${SITE.phoneDigits}`} className="underline font-medium">Call {SITE.phone}</a>
+                        {" · "}
+                        <a href={waLink(`Hi Meltaways, I tried to submit a VIP consultation request but it wouldn't send. My name is ${f.full_name}.`)} target="_blank" rel="noopener noreferrer" className="underline font-medium">WhatsApp us</a>
+                      </>
+                    )}
                   </p>
                 )}
               </div>
