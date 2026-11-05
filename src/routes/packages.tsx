@@ -32,7 +32,7 @@ function Packages() {
             "Complete your consultation form",
             "Speak with our team by WhatsApp or call",
             "Choose your treatment plan",
-            "Visit Woodbrook or St. Augustine",
+            "Visit our El Dorado studio",
             "Complete your sessions and aftercare",
           ].map((step, i) => (
             <li key={step} className="bg-background rounded-2xl p-5 border border-border/60 flex gap-3">

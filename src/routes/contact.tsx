@@ -8,7 +8,7 @@ import { postEnquiry } from "@/lib/booking-api";
 export const Route = createFileRoute("/contact")({
   head: () => ({ meta: [
     { title: "Contact — Melt Aways" },
-    { name: "description", content: "Visit Melt Aways in Woodbrook or St Augustine. Call, WhatsApp, or send us a message." },
+    { name: "description", content: "Visit Melt Aways at #240 Eastern Main Road, El Dorado. Call, WhatsApp, or send us a message." },
   ]}),
   component: Contact,
 });

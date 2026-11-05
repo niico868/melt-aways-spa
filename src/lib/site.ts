@@ -7,7 +7,7 @@ export const SITE = {
   phone: "1(868) 378-5630",
   phoneDigits: "18683785630",
   email: "meltawaystt@gmail.com",
-  hours: "8:00 AM – 4:00 PM",
+  hours: "Tuesday to Saturday, 10:00 AM – 4:00 PM",
   whatsapp: "https://wa.me/18683785630?text=Hi%20Melt%20Aways%2C%20I%20would%20like%20to%20book%20a%20consultation.",
   whatsappBase: "https://wa.me/18683785630",
   instagram: "https://www.instagram.com/meltawaystt/",
