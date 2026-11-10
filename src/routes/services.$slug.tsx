@@ -1,6 +1,7 @@
 import { createFileRoute, Link, notFound } from "@tanstack/react-router";
 import { Section, Eyebrow } from "@/components/Section";
 import { SERVICES } from "@/lib/site";
+import { BUSINESS_ID, absoluteUrl, breadcrumbJsonLd, canonicalUrl, jsonLdScript, ogImageMeta } from "@/lib/seo";
 import { SERVICES_CONTENT, type ServiceContent } from "@/lib/services-content";
 import {
   Accordion,
@@ -48,14 +49,51 @@ export const Route = createFileRoute("/services/$slug")({
       return { meta: [{ title: "Treatment not found — Melt Aways" }, { name: "robots", content: "noindex" }] };
     }
     const { service, content } = loaderData;
-    const title = `${service.name} — Melt Aways`;
-    const desc = content.tagline || service.desc;
+    const title = `${service.name} in Trinidad | Melt Aways, El Dorado`;
+    const lead = (content.tagline || service.desc).replace(/\.$/, "");
+    const desc = `${lead}. Consultation-led ${service.name.toLowerCase()} at Melt Aways in El Dorado, Trinidad. Book a consultation.`;
+    const path = `/services/${service.slug}`;
+    const image = IMAGES[service.slug];
     return {
       meta: [
         { title },
         { name: "description", content: desc },
         { property: "og:title", content: title },
         { property: "og:description", content: desc },
+        ...(image ? ogImageMeta(image, `${service.name} at Melt Aways, Trinidad`) : []),
+      ],
+      scripts: [
+        jsonLdScript({
+          "@context": "https://schema.org",
+          "@type": "Service",
+          name: service.name,
+          serviceType: service.name,
+          description: content.overview,
+          url: canonicalUrl(path),
+          ...(image ? { image: absoluteUrl(image) } : {}),
+          provider: { "@id": BUSINESS_ID },
+          areaServed: { "@type": "Country", name: "Trinidad and Tobago" },
+        }),
+        ...(content.faqs?.length
+          ? [
+              jsonLdScript({
+                "@context": "https://schema.org",
+                "@type": "FAQPage",
+                mainEntity: content.faqs.map((f) => ({
+                  "@type": "Question",
+                  name: f.question,
+                  acceptedAnswer: { "@type": "Answer", text: f.answer },
+                })),
+              }),
+            ]
+          : []),
+        jsonLdScript(
+          breadcrumbJsonLd([
+            { name: "Home", path: "/" },
+            { name: "Services", path: "/services" },
+            { name: service.name, path },
+          ]),
+        ),
       ],
     };
   },

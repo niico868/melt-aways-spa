@@ -1,9 +1,14 @@
-import { createFileRoute, Link } from "@tanstack/react-router";
+import { createFileRoute, Link, notFound } from "@tanstack/react-router";
 import { ArrowLeft, ArrowRight } from "lucide-react";
 import { Section, Eyebrow } from "@/components/Section";
 import { getJournalArticle } from "@/lib/journal";
+import { BUSINESS_ID, absoluteUrl, breadcrumbJsonLd, canonicalUrl, jsonLdScript, ogImageMeta } from "@/lib/seo";
 
 export const Route = createFileRoute("/journal/$slug")({
+  loader: ({ params }) => {
+    // Unknown articles return a real 404 instead of a "not available" page with status 200.
+    if (!getJournalArticle(params.slug)) throw notFound();
+  },
   head: ({ params }) => {
     const article = getJournalArticle(params.slug);
     const title = article ? `${article.title} | Melt Aways Journal` : "Journal Article | Melt Aways";
@@ -14,8 +19,33 @@ export const Route = createFileRoute("/journal/$slug")({
         { name: "description", content: description },
         { property: "og:title", content: title },
         { property: "og:description", content: description },
-        ...(article ? [{ property: "og:image", content: article.image }] : []),
+        { property: "og:type", content: "article" },
+        ...(article ? ogImageMeta(article.image, article.title) : []),
+        ...(article ? [{ property: "article:published_time", content: article.publishedAt }] : []),
       ],
+      scripts: article
+        ? [
+            jsonLdScript({
+              "@context": "https://schema.org",
+              "@type": "BlogPosting",
+              headline: article.title,
+              description: article.description,
+              image: [absoluteUrl(article.image)],
+              datePublished: article.publishedAt,
+              articleSection: article.category,
+              mainEntityOfPage: canonicalUrl(`/journal/${article.slug}`),
+              author: { "@id": BUSINESS_ID },
+              publisher: { "@id": BUSINESS_ID },
+            }),
+            jsonLdScript(
+              breadcrumbJsonLd([
+                { name: "Home", path: "/" },
+                { name: "Journal", path: "/journal" },
+                { name: article.title, path: `/journal/${article.slug}` },
+              ]),
+            ),
+          ]
+        : [],
     };
   },
   component: JournalArticlePage,

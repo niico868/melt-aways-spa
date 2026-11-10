@@ -6,7 +6,7 @@ import { GALLERY } from "@/lib/ba";
 
 export const Route = createFileRoute("/gallery")({
   head: () => ({ meta: [
-    { title: "Before & After Gallery — Melt Aways" },
+    { title: "Before & After Gallery: Body Contouring Results | Melt Aways Trinidad" },
     { name: "description", content: "Before and after photos from Melt Aways clients organised by treatment category. Results vary. Consultation required." },
   ]}),
   component: Gallery,

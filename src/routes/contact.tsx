@@ -7,8 +7,8 @@ import { postEnquiry } from "@/lib/booking-api";
 
 export const Route = createFileRoute("/contact")({
   head: () => ({ meta: [
-    { title: "Contact — Melt Aways" },
-    { name: "description", content: "Visit Melt Aways in Woodbrook or St Augustine. Call, WhatsApp, or send us a message." },
+    { title: "Contact & Directions: El Dorado, Trinidad | Melt Aways" },
+    { name: "description", content: "Visit Melt Aways at #240 Eastern Main Road, El Dorado, Trinidad. Call or WhatsApp 1(868) 378-5630, email us, or send a message to book a consultation." },
   ]}),
   component: Contact,
 });

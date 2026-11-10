@@ -5,7 +5,7 @@ import { CONCIERGE_WA, CONCIERGE_MESSAGE, waClick } from "@/lib/site";
 
 export const Route = createFileRoute("/timeline")({
   head: () => ({ meta: [
-    { title: "Plan Your Treatment Before You Arrive — Melt Aways" },
+    { title: "Treatment Timeline Before Carnival, Weddings & Holidays | Melt Aways Trinidad" },
     { name: "description", content: "Treatment timeline for visiting clients planning body sculpting, skin tightening and facial care before Carnival, Christmas, Weddings, Summer Trips and birthdays." },
     { property: "og:title", content: "Plan Your Treatment Before You Arrive — Melt Aways" },
     { property: "og:description", content: "How far ahead to plan body contouring, skin tightening, lymphatic drainage and facial treatments before your event in Trinidad." },

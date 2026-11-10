@@ -4,8 +4,8 @@ import { REVIEWS } from "@/lib/site";
 
 export const Route = createFileRoute("/reviews")({
   head: () => ({ meta: [
-    { title: "Reviews — Melt Aways" },
-    { name: "description", content: "Real stories from Melt Aways clients in Trinidad & Tobago." },
+    { title: "Client Reviews | Melt Aways Body Contouring, Trinidad" },
+    { name: "description", content: "Real reviews from Melt Aways clients in Trinidad & Tobago about body contouring, skin tightening and our consultation-first approach." },
   ]}),
   component: Reviews,
 });
