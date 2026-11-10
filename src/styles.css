@@ -21,6 +21,14 @@
   font-display: block;
 }
 
+/* Slide-in reveal animations start off-screen; never let them create a
+   horizontal scrollbar on phones. `clip` (unlike `hidden`) keeps sticky
+   positioning working. */
+html,
+body {
+  overflow-x: clip;
+}
+
 @theme inline {
   --radius-sm: calc(var(--radius) - 4px);
   --radius-md: calc(var(--radius) - 2px);

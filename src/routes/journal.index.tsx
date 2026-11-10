@@ -14,7 +14,7 @@ function JournalIndex() {
         <Eyebrow>Treatment Journal</Eyebrow>
         <h1 className="text-4xl lg:text-6xl font-light text-ink leading-tight">Honest guidance, treatment education, and seasonal preparation.</h1>
         <p className="mt-5 text-taupe leading-relaxed">
-          A growing library of articles from the Melt Aways team. We share what we share with clients in consultation,
+          A growing library of articles from the Melt Elite Aesthetics team. We share what we share with clients in consultation,
           so you can feel informed before you book.
         </p>
       </div>

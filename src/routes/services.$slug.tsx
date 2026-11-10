@@ -46,12 +46,12 @@ export const Route = createFileRoute("/services/$slug")({
   },
   head: ({ loaderData }) => {
     if (!loaderData) {
-      return { meta: [{ title: "Treatment not found — Melt Aways" }, { name: "robots", content: "noindex" }] };
+      return { meta: [{ title: "Treatment not found — Melt Elite Aesthetics" }, { name: "robots", content: "noindex" }] };
     }
     const { service, content } = loaderData;
-    const title = `${service.name} in Trinidad | Melt Aways, El Dorado`;
+    const title = `${service.name} in Trinidad | Melt Elite Aesthetics, El Dorado`;
     const lead = (content.tagline || service.desc).replace(/\.$/, "");
-    const desc = `${lead}. Consultation-led ${service.name.toLowerCase()} at Melt Aways in El Dorado, Trinidad. Book a consultation.`;
+    const desc = `${lead}. Consultation-led ${service.name.toLowerCase()} at Melt Elite Aesthetics in El Dorado, Trinidad. Book a consultation.`;
     const path = `/services/${service.slug}`;
     const image = IMAGES[service.slug];
     return {
@@ -60,7 +60,7 @@ export const Route = createFileRoute("/services/$slug")({
         { name: "description", content: desc },
         { property: "og:title", content: title },
         { property: "og:description", content: desc },
-        ...(image ? ogImageMeta(image, `${service.name} at Melt Aways, Trinidad`) : []),
+        ...(image ? ogImageMeta(image, `${service.name} at Melt Elite Aesthetics, Trinidad`) : []),
       ],
       scripts: [
         jsonLdScript({

@@ -1,13 +1,17 @@
 import logoAsset from "@/assets/logo.media";
 import meaLogoAsset from "@/assets/mea-logo.png.media";
 
+/** Public production origin. Used for canonical URLs, the sitemap and structured data. */
+export const SITE_URL = "https://www.meltawaysspa.com";
+
 export const SITE = {
-  name: "Melt Aways",
+  name: "Melt Elite Aesthetics",
   tagline: "Where we melt fat and reveal the you inside.",
   phone: "1(868) 378-5630",
   phoneDigits: "18683785630",
   email: "meltawaystt@gmail.com",
-  hours: "8:00 AM – 4:00 PM",
+  // Matches the booking system's schedule (open days come from the salon calendar).
+  hours: "Tuesday – Saturday, 10:00 AM – 4:00 PM",
   whatsapp: "https://wa.me/18683785630?text=Hi%20Melt%20Aways%2C%20I%20would%20like%20to%20book%20a%20consultation.",
   whatsappBase: "https://wa.me/18683785630",
   instagram: "https://www.instagram.com/meltawaystt/",
@@ -46,11 +50,11 @@ export function waLink(message?: string) {
     : `https://web.whatsapp.com/send?phone=${SITE.phoneDigits}&text=${text}&type=phone_number&app_absent=0`;
 }
 
-const DEFAULT_WA_MESSAGE = "Hi Melt Aways, I would like to book a consultation.";
+const DEFAULT_WA_MESSAGE = "Hi Melt Elite Aesthetics, I would like to book a consultation.";
 
 // Concierge prefilled message for visiting / foreign clients.
 export const CONCIERGE_MESSAGE =
-  "Hi Melt Aways, I’m interested in planning treatment before visiting Trinidad. My travel dates are ___ and I’d like help choosing the right service.";
+  "Hi Melt Elite Aesthetics, I’m interested in planning treatment before visiting Trinidad. My travel dates are ___ and I’d like help choosing the right service.";
 
 /** Must be called at render/click time so device detection runs in the browser. */
 export const conciergeWaLink = () => waLink(CONCIERGE_MESSAGE);
@@ -165,7 +169,7 @@ export const POLICIES = [
   { title: "Cancellation Policy", body: "We kindly ask for advance notice if you must cancel. Specific notice windows will be confirmed at booking. [Final policy approval pending]" },
   { title: "Late Arrival Policy", body: "If you arrive late, your appointment may be shortened or rescheduled to respect other clients' time. [Final policy approval pending]" },
   { title: "Refund Policy", body: "Refunds are reviewed case-by-case and may be subject to consultation outcomes. [Final policy approval pending]" },
-  { title: "Health & Safety Disclaimer", body: "Melt Aways does not provide medical diagnosis. All recommendations are made within the scope of consultation-led aesthetic and wellness services." },
+  { title: "Health & Safety Disclaimer", body: "Melt Elite Aesthetics does not provide medical diagnosis. All recommendations are made within the scope of consultation-led aesthetic and wellness services." },
   { title: "Results Disclaimer", body: "Results vary by client. No specific outcome is guaranteed. Consistency, lifestyle, and personalised guidance influence results." },
   { title: "Privacy Policy", body: "Information collected through our forms is used solely to support your consultation and booking experience. We do not share your information with third parties." },
 ];

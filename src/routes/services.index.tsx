@@ -31,8 +31,8 @@ const SERVICE_IMAGES: Record<string, string> = {
 
 export const Route = createFileRoute("/services/")({
   head: () => ({ meta: [
-    { title: "Body Contouring, Skin Tightening & Anti-Aging Treatments in Trinidad | Melt Aways" },
-    { name: "description", content: "Body contouring, fat melting, skin tightening, anti-aging, cavitation, lymphatic drainage, peptides and IV therapy, all consultation-led at Melt Aways in El Dorado, Trinidad." },
+    { title: "Body Contouring, Skin Tightening & Anti-Aging Treatments in Trinidad | Melt Elite Aesthetics" },
+    { name: "description", content: "Body contouring, fat melting, skin tightening, anti-aging, cavitation, lymphatic drainage, peptides and IV therapy, all consultation-led at Melt Elite Aesthetics in El Dorado, Trinidad." },
   ]}),
   component: Services,
 });
@@ -56,7 +56,7 @@ function Services() {
                 <Link to="/services/$slug" params={{ slug: s.slug }} className="hover:underline">{s.name}</Link>
               </h3>
               <p className="mt-2 text-sm text-taupe flex-1 leading-relaxed">{s.desc}</p>
-              <div className="mt-3 text-xs text-taupe/70">Service price pending · Duration pending</div>
+              <div className="mt-3 text-xs text-taupe/70">Pricing &amp; timing confirmed at your consultation</div>
               <div className="mt-4 flex items-center gap-3 text-sm">
                 <Link to="/services/$slug" params={{ slug: s.slug }} className="text-primary font-medium hover:underline">Learn more</Link>
                 <span className="text-border">·</span>

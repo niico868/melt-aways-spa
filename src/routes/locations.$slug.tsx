@@ -19,10 +19,10 @@ type Page = {
 const PAGES: Record<string, Page> = {
   "body-contouring-trinidad": {
     slug: "body-contouring-trinidad",
-    title: "Body Contouring in Trinidad — Melt Aways",
+    title: "Body Contouring in Trinidad — Melt Elite Aesthetics",
     h1: "Body Contouring in Trinidad",
     meta: "Consultation led body contouring in Trinidad. Treatment planning for body confidence, Carnival prep, Weddings, and special events.",
-    about: "Body contouring at Melt Aways supports clients looking for smoother, more sculpted body shape through non surgical treatment paths planned around your goals.",
+    about: "Body contouring at Melt Elite Aesthetics supports clients looking for smoother, more sculpted body shape through non surgical treatment paths planned around your goals.",
     suitable: "Clients targeting stubborn areas, post pregnancy changes, fluctuating weight, or anyone wanting a more confident silhouette before a major event.",
     consultation: "Every body contouring plan begins with consultation. We review your goals, timeline, health history, and lifestyle before recommending a direction.",
     safety: "Not every treatment is right for every body. Pregnancy, certain medical conditions, and some medications may affect suitability.",
@@ -31,7 +31,7 @@ const PAGES: Record<string, Page> = {
   },
   "fat-melting-treatments-trinidad": {
     slug: "fat-melting-treatments-trinidad",
-    title: "Fat Melting Treatments in Trinidad — Melt Aways",
+    title: "Fat Melting Treatments in Trinidad — Melt Elite Aesthetics",
     h1: "Fat Melting Treatments in Trinidad",
     meta: "Non surgical fat melting treatments in Trinidad. Cavitation and contouring sessions, consultation led.",
     about: "Fat melting treatments help support reduction in stubborn areas when paired with consistency, lifestyle support, and a treatment plan built for you.",
@@ -43,10 +43,10 @@ const PAGES: Record<string, Page> = {
   },
   "skin-tightening-trinidad": {
     slug: "skin-tightening-trinidad",
-    title: "Skin Tightening in Trinidad — Melt Aways",
+    title: "Skin Tightening in Trinidad — Melt Elite Aesthetics",
     h1: "Skin Tightening in Trinidad",
     meta: "Consultation led skin tightening treatments in Trinidad. Support for firmer looking skin, smoother body and face definition.",
-    about: "Skin tightening at Melt Aways supports firmer looking skin and improved body and facial definition through a guided plan.",
+    about: "Skin tightening at Melt Elite Aesthetics supports firmer looking skin and improved body and facial definition through a guided plan.",
     suitable: "Clients looking for support after weight changes, post pregnancy, or simply wanting a smoother and firmer look.",
     consultation: "Suitability and treatment plans are confirmed during consultation.",
     safety: "Some medical conditions and medications may affect suitability. We will review this with you before any session.",
@@ -55,9 +55,9 @@ const PAGES: Record<string, Page> = {
   },
   "morpheus8-trinidad": {
     slug: "morpheus8-trinidad",
-    title: "Morpheus8 in Trinidad — Melt Aways",
+    title: "Morpheus8 in Trinidad — Melt Elite Aesthetics",
     h1: "Morpheus8 in Trinidad",
-    meta: "Information about Morpheus8 treatment consultations at Melt Aways in Trinidad.",
+    meta: "Information about Morpheus8 treatment consultations at Melt Elite Aesthetics in Trinidad.",
     about: "Morpheus8 is an advanced skin treatment focused on smoothing, firming, and supporting healthier looking skin. Treatment availability is confirmed during consultation.",
     suitable: "Clients seeking improvement in skin texture, fine lines, and overall facial or body skin appearance.",
     consultation: "A consultation is required so we can review your skin, history, and goals.",
@@ -67,7 +67,7 @@ const PAGES: Record<string, Page> = {
   },
   "anti-aging-facial-trinidad": {
     slug: "anti-aging-facial-trinidad",
-    title: "Anti Aging Facial in Trinidad — Melt Aways",
+    title: "Anti Aging Facial in Trinidad — Melt Elite Aesthetics",
     h1: "Anti Aging Facial in Trinidad",
     meta: "Anti aging facial treatments in Trinidad designed to support glow, smoother texture, and firmer looking skin.",
     about: "Our anti aging facial direction supports glow, hydration, and a more refreshed appearance through guided care.",
@@ -79,7 +79,7 @@ const PAGES: Record<string, Page> = {
   },
   "body-sculpting-before-carnival": {
     slug: "body-sculpting-before-carnival",
-    title: "Body Sculpting Before Carnival in Trinidad — Melt Aways",
+    title: "Body Sculpting Before Carnival in Trinidad — Melt Elite Aesthetics",
     h1: "Body Sculpting Before Carnival in Trinidad",
     meta: "Body sculpting and contouring treatments in Trinidad for clients preparing for Carnival season.",
     about: "Carnival prep is one of the most common reasons clients begin a treatment plan. We help you plan early, stay consistent, and feel confident in costume.",
@@ -91,10 +91,10 @@ const PAGES: Record<string, Page> = {
   },
   "beauty-clinic-woodbrook": {
     slug: "beauty-clinic-woodbrook",
-    title: "Beauty Clinic for Woodbrook Clients — Melt Aways",
+    title: "Beauty Clinic for Woodbrook Clients — Melt Elite Aesthetics",
     h1: "Beauty Clinic for Woodbrook Clients",
-    meta: "Melt Aways serves clients from Woodbrook and Port of Spain from our El Dorado studio: consultation-led body contouring, skin tightening, facials, and wellness.",
-    about: "Melt Aways operates from a single premium studio in El Dorado, welcoming many clients travelling in from Woodbrook and the Port of Spain area.",
+    meta: "Melt Elite Aesthetics serves clients from Woodbrook and Port of Spain from our El Dorado studio: consultation-led body contouring, skin tightening, facials, and wellness.",
+    about: "Melt Elite Aesthetics operates from a single premium studio in El Dorado, welcoming many clients travelling in from Woodbrook and the Port of Spain area.",
     suitable: "Clients living or working in the Port of Spain area looking for a trusted beauty and body clinic.",
     consultation: "All services begin with consultation so we can recommend the right path for you.",
     safety: "Treatment suitability is confirmed during consultation. We do not provide diagnosis online.",
@@ -103,9 +103,9 @@ const PAGES: Record<string, Page> = {
   },
   "body-contouring-st-augustine": {
     slug: "body-contouring-st-augustine",
-    title: "Body Contouring for St Augustine Clients — Melt Aways",
+    title: "Body Contouring for St Augustine Clients — Melt Elite Aesthetics",
     h1: "Body Contouring for St Augustine Clients",
-    meta: "Body contouring for St Augustine and the East/Central corridor, delivered from our Melt Aways studio in nearby El Dorado.",
+    meta: "Body contouring for St Augustine and the East/Central corridor, delivered from our Melt Elite Aesthetics studio in nearby El Dorado.",
     about: "Our El Dorado studio is a short drive from St Augustine and supports clients on the East and Central side of Trinidad.",
     suitable: "Clients on the East or Central side wanting a closer trusted clinic for body and skin care.",
     consultation: "Treatment paths are confirmed during consultation. We listen first, then recommend.",
@@ -123,7 +123,7 @@ export const Route = createFileRoute("/locations/$slug")({
   },
   head: ({ loaderData }) => {
     const p = loaderData?.page;
-    if (!p) return { meta: [{ title: "Not found — Melt Aways" }] };
+    if (!p) return { meta: [{ title: "Not found — Melt Elite Aesthetics" }] };
     return { meta: [
       { title: p.title },
       { name: "description", content: p.meta },

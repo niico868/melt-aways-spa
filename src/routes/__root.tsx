@@ -10,6 +10,8 @@ import {
 } from "@tanstack/react-router";
 import { lazy, Suspense, type ReactNode } from "react";
 
+import { MotionConfig } from "framer-motion";
+
 import appCss from "../styles.css?url";
 import { DEFAULT_OG_IMAGE, businessJsonLd, canonicalUrl, jsonLdScript, ogImageMeta } from "@/lib/seo";
 
@@ -81,16 +83,16 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Melt Elite Aesthetics — a subsidiary of Melt Aways Spa | Trinidad & Tobago" },
+      { title: "Melt Elite Aesthetics (MEA) | Body Contouring & Aesthetics in Trinidad & Tobago" },
       { name: "description", content: "Melt Elite Aesthetics (MEA) — body-contouring, fat melting, skin tightening & anti-aging in El Dorado, Trinidad & Tobago. Consultation-led, respectful, premium." },
       { name: "author", content: "Melt Elite Aesthetics" },
-      { property: "og:title", content: "Melt Elite Aesthetics — a subsidiary of Melt Aways Spa" },
+      { property: "og:title", content: "Melt Elite Aesthetics — Body Contouring & Aesthetics in Trinidad & Tobago" },
       { property: "og:description", content: "MEA — consultation-led body contouring, skin tightening & anti-aging in Trinidad & Tobago." },
       { property: "og:type", content: "website" },
-      ...ogImageMeta(DEFAULT_OG_IMAGE, "Melt Aways: body contouring and skin treatments in El Dorado, Trinidad"),
-      { property: "og:site_name", content: "Melt Aways" },
+      ...ogImageMeta(DEFAULT_OG_IMAGE, "Melt Elite Aesthetics: body contouring and skin treatments in El Dorado, Trinidad"),
+      { property: "og:site_name", content: "Melt Elite Aesthetics" },
       { property: "og:locale", content: "en_TT" },
-      { name: "twitter:title", content: "Melt Elite Aesthetics — a subsidiary of Melt Aways Spa" },
+      { name: "twitter:title", content: "Melt Elite Aesthetics — Body Contouring & Aesthetics in Trinidad & Tobago" },
       { name: "twitter:description", content: "MEA — consultation-led body contouring, skin tightening & anti-aging in Trinidad & Tobago." },
     ],
     links: [
@@ -109,7 +111,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { rel: "preconnect", href: "https://fonts.gstatic.com", crossOrigin: "anonymous" },
       {
         rel: "stylesheet",
-        href: "https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&family=Playfair+Display:wght@400;500&display=swap",
+        href: "https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,400&family=Great+Vibes&family=Inter:wght@400;500;600;700;800&display=swap",
       },
     ],
     scripts: [jsonLdScript(businessJsonLd())],
@@ -142,10 +144,10 @@ function RootShell({ children }: { children: ReactNode }) {
 function RootComponent() {
   const { queryClient } = Route.useRouteContext();
 
-
-
   return (
     <QueryClientProvider client={queryClient}>
+      {/* Honour the visitor's "reduce motion" setting for all Framer Motion reveals. */}
+      <MotionConfig reducedMotion="user">
       <Suspense fallback={null}>
         <div data-public-chrome="site-progress"><ScrollProgress /></div>
         <div data-public-chrome="site-header"><Header /></div>
@@ -158,6 +160,7 @@ function RootComponent() {
         <div data-public-chrome="site-whatsapp"><WhatsAppFab /></div>
         <div data-public-chrome="site-audio"><AmbientAudio /></div>
       </Suspense>
+      </MotionConfig>
     </QueryClientProvider>
   );
 }

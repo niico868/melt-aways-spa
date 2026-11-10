@@ -6,9 +6,9 @@ import { Reveal } from "@/components/motion/Reveal";
 export const Route = createFileRoute("/about")({
   head: () => ({
     meta: [
-      { title: "About Melt Aways — Personalized Body Contouring in Trinidad & Tobago" },
-      { name: "description", content: "Learn about Melt Aways: our mission, values, and consultation-led philosophy for body contouring and wellness in Trinidad & Tobago." },
-      { property: "og:title", content: "About Melt Aways" },
+      { title: "About Melt Elite Aesthetics — Personalized Body Contouring in Trinidad & Tobago" },
+      { name: "description", content: "Learn about Melt Elite Aesthetics: our mission, values, and consultation-led philosophy for body contouring and wellness in Trinidad & Tobago." },
+      { property: "og:title", content: "About Melt Elite Aesthetics" },
       { property: "og:description", content: "A space where clients feel seen, respected, and guided." },
     ],
   }),
@@ -27,12 +27,12 @@ function AboutPage() {
   return (
     <Section>
       <div className="max-w-3xl mx-auto text-center">
-        <Eyebrow>About Melt Aways</Eyebrow>
+        <Eyebrow>About Melt Elite Aesthetics</Eyebrow>
         <h1 className="font-serif text-4xl lg:text-6xl text-ink leading-tight">
           A space where clients feel <em className="not-italic text-primary">seen, respected, and guided</em>.
         </h1>
         <p className="mt-6 text-taupe leading-relaxed">
-          Melt Aways exists to give women and men a place where they can talk about their body and
+          Melt Elite Aesthetics exists to give women and men a place where they can talk about their body and
           their goals without judgement. We focus on clear guidance, personal attention, and treatment
           plans built around your comfort, your confidence, and the results you want to achieve.
         </p>
@@ -60,7 +60,7 @@ function AboutPage() {
         <Reveal direction="right" className="bg-background border border-border/60 rounded-3xl p-7 card-shadow">
           <div className="text-xs uppercase tracking-[0.22em] text-primary/70 mb-2">Philosophy</div>
           <p className="text-ink/90 leading-relaxed">
-            Melt Aways care begins with understanding the person, not just the treatment. We welcome
+            Melt Elite Aesthetics care begins with understanding the person, not just the treatment. We welcome
             all bodies, listen without judgement, and create safe, personalized treatment plans that
             support confidence, comfort, and real progress.
           </p>

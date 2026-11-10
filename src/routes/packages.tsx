@@ -5,8 +5,8 @@ import { PACKAGES } from "@/lib/site";
 
 export const Route = createFileRoute("/packages")({
   head: () => ({ meta: [
-    { title: "Body Contouring & Skin Treatment Packages in Trinidad | Melt Aways" },
-    { name: "description", content: "Treatment packages at Melt Aways in El Dorado, Trinidad: Sculpt & Smooth, Melt & Tighten, Glow & Firm, Full Body Confidence and Wellness Reset." },
+    { title: "Body Contouring & Skin Treatment Packages in Trinidad | Melt Elite Aesthetics" },
+    { name: "description", content: "Treatment packages at Melt Elite Aesthetics in El Dorado, Trinidad: Sculpt & Smooth, Melt & Tighten, Glow & Firm, Full Body Confidence and Wellness Reset." },
   ]}),
   component: Packages,
 });
@@ -24,7 +24,7 @@ function Packages() {
       <div className="max-w-5xl mx-auto bg-cream rounded-3xl p-8 lg:p-10 mb-14">
         <div className="text-center mb-8">
           <p className="font-script text-3xl text-gold leading-none">Your Journey</p>
-          <h2 className="mt-1 text-2xl lg:text-3xl text-ink">Your Melt Aways Experience</h2>
+          <h2 className="mt-1 text-2xl lg:text-3xl text-ink">Your Melt Elite Aesthetics Experience</h2>
         </div>
         <ol className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
           {[

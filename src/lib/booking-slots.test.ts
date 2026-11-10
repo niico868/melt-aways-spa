@@ -1,5 +1,5 @@
 import { describe, it, expect } from "vitest";
-import { availableSlots, isDateDisabled, toIso } from "./booking-slots";
+import { availableSlots, describeHours, isDateDisabled, toIso } from "./booking-slots";
 
 const now = Date.parse("2026-10-19T09:00:00-04:00"); // Monday morning
 const days = [2, 3, 4, 5, 6];
@@ -36,5 +36,20 @@ describe("booking slots", () => {
 
   it("formats starts_at with the -04:00 offset", () => {
     expect(toIso("2026-10-20", "14:00")).toBe("2026-10-20T14:00:00-04:00");
+  });
+});
+
+describe("describeHours", () => {
+  it("describes a consecutive run of days", () => {
+    expect(describeHours({ days: [2, 3, 4, 5, 6], open: "10:00", close: "16:00" }))
+      .toBe("Open Tuesday to Saturday, 10:00 AM – 4:00 PM.");
+  });
+  it("lists non-consecutive days", () => {
+    expect(describeHours({ days: [6, 1, 3], open: "08:00", close: "16:00" }))
+      .toBe("Open Monday, Wednesday and Saturday, 8:00 AM – 4:00 PM.");
+  });
+  it("says daily when open every day", () => {
+    expect(describeHours({ days: [0, 1, 2, 3, 4, 5, 6], open: "08:00", close: "16:00" }))
+      .toBe("Open daily, 8:00 AM – 4:00 PM.");
   });
 });

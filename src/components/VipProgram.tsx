@@ -50,7 +50,7 @@ export function VipProgram() {
           <div className="mt-8 flex flex-wrap gap-3">
             <Link
               to="/vip"
-              aria-label="Find out more about the Meltaways VIP Transformation Program"
+              aria-label="Find out more about the Melt Elite Aesthetics VIP Transformation Program"
               className="inline-flex items-center gap-2 rounded-full bg-primary text-primary-foreground px-7 py-3.5 font-medium hover:opacity-90 lift-on-hover soft-shadow focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2"
             >
               <Crown className="w-4 h-4" aria-hidden /> Find out more
@@ -66,21 +66,21 @@ export function VipProgram() {
           <p className="mt-4 text-sm text-taupe">
             Sign up online, Call or{" "}
             <a
-              href={waLink("Hi Melt Aways, I'd like to ask about becoming a Meltaways VIP member.")}
+              href={waLink("Hi Melt Elite Aesthetics, I'd like to ask about becoming a Melt Elite Aesthetics VIP member.")}
               target="_blank"
               rel="noopener noreferrer"
               className="text-primary underline underline-offset-4"
             >
               WhatsApp {SITE.phone.replace("1(868) ", "")}
             </a>{" "}
-            to ask about becoming a Meltaways VIP member.
+            to ask about becoming a Melt Elite Aesthetics VIP member.
           </p>
         </div>
 
         <div className="relative min-h-[280px] lg:min-h-full bg-cream order-first lg:order-none">
           <img
             src={vipImage.url}
-            alt="Meltaways therapist performing a body sculpting treatment"
+            alt="Melt Elite Aesthetics therapist performing a body sculpting treatment"
             className="w-full h-full object-cover"
             loading="lazy"
           />

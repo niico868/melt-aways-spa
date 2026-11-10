@@ -51,3 +51,23 @@ export function formatTime(hhmm: string): string {
   const h = Math.floor(m / 60);
   return `${((h + 11) % 12) + 1}:${String(m % 60).padStart(2, "0")} ${h < 12 ? "AM" : "PM"}`;
 }
+
+const DAY_NAMES = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+
+/**
+ * Human sentence for the salon's opening hours, built from the booking system's
+ * live schedule so the page can never contradict the calendar, e.g.
+ * "Open Tuesday to Saturday, 10:00 AM – 4:00 PM."
+ */
+export function describeHours(hours: { days: number[]; open: string; close: string }): string {
+  const days = [...new Set(hours.days)].filter((d) => d >= 0 && d <= 6).sort((a, b) => a - b);
+  const time = `${formatTime(hours.open)} – ${formatTime(hours.close)}`;
+  if (days.length === 0) return `Open ${time}.`;
+  if (days.length === 7) return `Open daily, ${time}.`;
+  const consecutive = days.every((d, i) => i === 0 || d === days[i - 1] + 1);
+  const dayText =
+    days.length === 1 ? DAY_NAMES[days[0]]
+    : consecutive ? `${DAY_NAMES[days[0]]} to ${DAY_NAMES[days[days.length - 1]]}`
+    : `${days.slice(0, -1).map((d) => DAY_NAMES[d]).join(", ")} and ${DAY_NAMES[days[days.length - 1]]}`;
+  return `Open ${dayText}, ${time}.`;
+}

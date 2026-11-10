@@ -5,7 +5,7 @@ import { Section, Eyebrow } from "@/components/Section";
 import { Calendar } from "@/components/ui/calendar";
 import { SITE } from "@/lib/site";
 import {
-  availableSlots, formatTime, isDateDisabled, toIso, type Busy,
+  availableSlots, describeHours, formatTime, isDateDisabled, toIso, type Busy,
 } from "@/lib/booking-slots";
 
 import { BOOKING_API_URL, normalizeServiceName } from "@/lib/booking-api";
@@ -14,10 +14,10 @@ export const Route = createFileRoute("/booking")({
   validateSearch: (search: Record<string, unknown>): { service?: string } =>
     typeof search.service === "string" ? { service: search.service } : {},
   head: () => ({ meta: [
-    { title: "Book a Consultation or Treatment | Melt Aways, El Dorado Trinidad" },
-    { name: "description", content: "Choose a treatment, pick an open time and book your Melt Aways appointment online." },
-    { property: "og:title", content: "Book an Appointment — Melt Aways" },
-    { property: "og:description", content: "Choose a treatment, pick an open time and book your Melt Aways appointment online." },
+    { title: "Book a Consultation or Treatment | Melt Elite Aesthetics, El Dorado Trinidad" },
+    { name: "description", content: "Choose a treatment, pick an open time and book your Melt Elite Aesthetics appointment online." },
+    { property: "og:title", content: "Book an Appointment — Melt Elite Aesthetics" },
+    { property: "og:description", content: "Choose a treatment, pick an open time and book your Melt Elite Aesthetics appointment online." },
     { property: "og:type", content: "website" },
     { name: "twitter:card", content: "summary" },
   ]}),
@@ -154,7 +154,7 @@ function Booking() {
       <div className="text-center mb-12 bg-cream rounded-3xl px-6 py-10 border border-border/60">
         <Eyebrow>Book Online</Eyebrow>
         <h1 className="text-4xl lg:text-5xl font-light text-ink">Book your appointment.</h1>
-        <p className="mt-4 text-ink/70 max-w-xl mx-auto">Open Tuesday to Saturday, 10:00 AM – 4:00 PM.</p>
+        <p className="mt-4 text-ink/70 max-w-xl mx-auto">{describeHours(hours)}</p>
       </div>
 
       <form onSubmit={onSubmit} className="bg-background rounded-3xl border border-border/60 card-shadow p-7 lg:p-10 space-y-8">
@@ -217,10 +217,10 @@ function Booking() {
         </div>
 
         <div className="grid sm:grid-cols-2 gap-5">
-          <div><label className="text-sm font-medium text-ink">Full name <span className="text-primary">*</span></label><input name="name" required className={inputCls} /></div>
-          <div><label className="text-sm font-medium text-ink">Phone <span className="text-primary">*</span></label><input name="phone" type="tel" required className={inputCls} /></div>
-          <div className="sm:col-span-2"><label className="text-sm font-medium text-ink">Email</label><input name="email" type="email" className={inputCls} /></div>
-          <div className="sm:col-span-2"><label className="text-sm font-medium text-ink">Notes</label><textarea name="notes" rows={3} className={inputCls} /></div>
+          <div><label htmlFor="bk-name" className="text-sm font-medium text-ink">Full name <span className="text-primary">*</span></label><input id="bk-name" name="name" required autoComplete="name" className={inputCls} /></div>
+          <div><label htmlFor="bk-phone" className="text-sm font-medium text-ink">Phone / WhatsApp <span className="text-primary">*</span></label><input id="bk-phone" name="phone" type="tel" required autoComplete="tel" inputMode="tel" className={inputCls} /></div>
+          <div className="sm:col-span-2"><label htmlFor="bk-email" className="text-sm font-medium text-ink">Email <span className="text-taupe font-normal">(for your confirmation)</span></label><input id="bk-email" name="email" type="email" autoComplete="email" className={inputCls} /></div>
+          <div className="sm:col-span-2"><label htmlFor="bk-notes" className="text-sm font-medium text-ink">Notes</label><textarea id="bk-notes" name="notes" rows={3} className={inputCls} /></div>
         </div>
         <input type="text" name="mk_hp" tabIndex={-1} autoComplete="off" aria-hidden="true"
           defaultValue="" style={{ position: "absolute", left: "-10000px", width: 1, height: 1, opacity: 0 }} />
