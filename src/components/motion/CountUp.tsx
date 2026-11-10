@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useLayoutEffect, useRef, useState } from "react";
 import { useInView, useReducedMotion } from "framer-motion";
 
 type Props = {
@@ -12,14 +12,26 @@ type Props = {
   flicker?: boolean;
 };
 
+// useLayoutEffect warns during server rendering, so fall back to useEffect there.
+const useIsoLayoutEffect = typeof window !== "undefined" ? useLayoutEffect : useEffect;
+
 export function CountUp({ value, suffix = "", prefix = "", duration = 2.4, className, decimals = 0, flicker = false }: Props) {
   const ref = useRef<HTMLSpanElement | null>(null);
   const inView = useInView(ref, { once: true, amount: 0.5 });
   const reduce = useReducedMotion();
-  const [n, setN] = useState(reduce ? value : 0);
+  // Start at the real value so the server-rendered page (search results, link
+  // previews, slow or no-JS visitors) never shows 0. In the browser, reset to 0
+  // before the first paint so the count-up animation still plays on scroll.
+  const [n, setN] = useState(value);
+  const [ready, setReady] = useState(false);
+
+  useIsoLayoutEffect(() => {
+    if (!reduce) setN(0);
+    setReady(true);
+  }, []);
 
   useEffect(() => {
-    if (!inView || reduce) return;
+    if (!ready || !inView || reduce) return;
     const totalMs = duration * 1000;
     const start = performance.now();
     let raf = 0;
@@ -45,7 +57,7 @@ export function CountUp({ value, suffix = "", prefix = "", duration = 2.4, class
     };
     raf = requestAnimationFrame(tick);
     return () => cancelAnimationFrame(raf);
-  }, [inView, value, duration, reduce, flicker]);
+  }, [ready, inView, value, duration, reduce, flicker]);
 
   const display = decimals > 0 ? n.toFixed(decimals) : Math.round(n).toString();
   return (
