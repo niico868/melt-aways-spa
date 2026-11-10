@@ -3,7 +3,7 @@ import { Crown, Check, Phone, ClipboardList, CalendarClock, LineChart, RefreshCw
 import { Section } from "@/components/Section";
 import { SITE, waLink } from "@/lib/site";
 
-const TITLE = "VIP Transformation Program | Meltaways Spa";
+const TITLE = "VIP Transformation Program in Trinidad | Melt Aways";
 const DESC =
   "A guided, personalized Meltaways programme combining suitable body, beauty and wellness treatments with progress tracking and one convenient monthly payment.";
 

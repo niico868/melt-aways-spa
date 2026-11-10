@@ -8,14 +8,14 @@
 
 @font-face {
   font-family: "Inter";
-  src: url("/fonts/Inter.ttf") format("truetype-variations");
+  src: url("/fonts/Inter.woff2") format("woff2-variations"), url("/fonts/Inter.woff2") format("woff2");
   font-weight: 100 900;
   font-style: normal;
   font-display: swap;
 }
 @font-face {
   font-family: "Great Vibes";
-  src: url("/fonts/GreatVibes.ttf") format("truetype");
+  src: url("/fonts/GreatVibes.woff2") format("woff2");
   font-weight: 400;
   font-style: normal;
   font-display: block;

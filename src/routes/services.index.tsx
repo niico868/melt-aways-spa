@@ -31,8 +31,8 @@ const SERVICE_IMAGES: Record<string, string> = {
 
 export const Route = createFileRoute("/services/")({
   head: () => ({ meta: [
-    { title: "Services — Melt Aways" },
-    { name: "description", content: "Body-contouring, fat melting, skin tightening, anti-aging, cavitation, lymphatic drainage and more — consultation-led at Melt Aways." },
+    { title: "Body Contouring, Skin Tightening & Anti-Aging Treatments in Trinidad | Melt Aways" },
+    { name: "description", content: "Body contouring, fat melting, skin tightening, anti-aging, cavitation, lymphatic drainage, peptides and IV therapy, all consultation-led at Melt Aways in El Dorado, Trinidad." },
   ]}),
   component: Services,
 });

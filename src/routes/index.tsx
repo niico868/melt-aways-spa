@@ -14,6 +14,7 @@ import { CertProviderStrip } from "@/components/CertProviderStrip";
 import { VipProgram } from "@/components/VipProgram";
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog";
 import { BA_IMAGES } from "@/lib/ba";
+import { absoluteUrl } from "@/lib/seo";
 import heroBanner from "@/assets/hero-banner-treatment.png.media";
 import maVisiting from "@/assets/ma-visiting.png.media";
 import homeToning from "@/assets/treatments/Muscle_Toning.png.media";
@@ -28,7 +29,9 @@ export const Route = createFileRoute("/")({
       { name: "description", content: "Consultation-led body contouring, skin tightening, and wellness treatments in Trinidad & Tobago. Personalized care plans built around real goals, real bodies, and honest conversation." },
       { property: "og:title", content: "Melt Aways · Personalized Body Contouring for Real Bodies" },
       { property: "og:description", content: "Real bodies. Real goals. Consultation first. Premium body contouring and wellness in Trinidad & Tobago." },
-      { property: "og:image", content: heroBanner.url },
+      { property: "og:image", content: absoluteUrl(heroBanner.url) },
+      { name: "twitter:card", content: "summary_large_image" },
+      { name: "twitter:image", content: absoluteUrl(heroBanner.url) },
     ],
     links: [
       { rel: "preload", as: "image", href: homeToning.url },

@@ -6,10 +6,12 @@ import {
   useRouter,
   HeadContent,
   Scripts,
+  useRouterState,
 } from "@tanstack/react-router";
 import { lazy, Suspense, type ReactNode } from "react";
 
 import appCss from "../styles.css?url";
+import { DEFAULT_OG_IMAGE, businessJsonLd, canonicalUrl, jsonLdScript, ogImageMeta } from "@/lib/seo";
 
 const Header = lazy(() => import("../components/Header").then((m) => ({ default: m.Header })));
 const Footer = lazy(() => import("../components/Footer").then((m) => ({ default: m.Footer })));
@@ -85,11 +87,11 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { property: "og:title", content: "Melt Elite Aesthetics — a subsidiary of Melt Aways Spa" },
       { property: "og:description", content: "MEA — consultation-led body contouring, skin tightening & anti-aging in Trinidad & Tobago." },
       { property: "og:type", content: "website" },
-      { name: "twitter:card", content: "summary" },
+      ...ogImageMeta(DEFAULT_OG_IMAGE, "Melt Aways: body contouring and skin treatments in El Dorado, Trinidad"),
+      { property: "og:site_name", content: "Melt Aways" },
+      { property: "og:locale", content: "en_TT" },
       { name: "twitter:title", content: "Melt Elite Aesthetics — a subsidiary of Melt Aways Spa" },
       { name: "twitter:description", content: "MEA — consultation-led body contouring, skin tightening & anti-aging in Trinidad & Tobago." },
-      { property: "og:image", content: "https://storage.googleapis.com/gpt-engineer-file-uploads/1oLizYD3jPdpD8eRPF5rvL3aAS23/social-images/social-1780560137740-ChatGPT_Image_Jun_2,_2026,_04_00_39_PM_(4).webp" },
-      { name: "twitter:image", content: "https://storage.googleapis.com/gpt-engineer-file-uploads/1oLizYD3jPdpD8eRPF5rvL3aAS23/social-images/social-1780560137740-ChatGPT_Image_Jun_2,_2026,_04_00_39_PM_(4).webp" },
     ],
     links: [
       { rel: "icon", href: "/favicon.ico", sizes: "48x48" },
@@ -101,19 +103,16 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
         rel: "stylesheet",
         href: appCss,
       },
-      { rel: "preload", as: "font", type: "font/ttf", href: "/fonts/GreatVibes.ttf", crossOrigin: "anonymous" },
-      { rel: "preload", as: "font", type: "font/ttf", href: "/fonts/Inter.ttf", crossOrigin: "anonymous" },
+      { rel: "preload", as: "font", type: "font/woff2", href: "/fonts/GreatVibes.woff2", crossOrigin: "anonymous" },
+      { rel: "preload", as: "font", type: "font/woff2", href: "/fonts/Inter.woff2", crossOrigin: "anonymous" },
       { rel: "preconnect", href: "https://fonts.googleapis.com" },
       { rel: "preconnect", href: "https://fonts.gstatic.com", crossOrigin: "anonymous" },
       {
         rel: "stylesheet",
         href: "https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&family=Playfair+Display:wght@400;500&display=swap",
       },
-      {
-        rel: "stylesheet",
-        href: "https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap",
-      },
     ],
+    scripts: [jsonLdScript(businessJsonLd())],
   }),
   shellComponent: RootShell,
   component: RootComponent,
@@ -122,10 +121,15 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
 });
 
 function RootShell({ children }: { children: ReactNode }) {
+  // One canonical address per page, so www/non-www and ?query variants count as one page.
+  const pathname = useRouterState({ select: (st) => st.location.pathname });
+  const canonical = canonicalUrl(pathname);
   return (
     <html lang="en">
       <head>
         <HeadContent />
+        <link rel="canonical" href={canonical} />
+        <meta property="og:url" content={canonical} />
       </head>
       <body>
         {children}

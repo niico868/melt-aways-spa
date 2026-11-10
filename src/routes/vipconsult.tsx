@@ -9,7 +9,7 @@ import {
   emptyVipForm, validateVipStep, type VipFormState, type YesNo,
 } from "@/lib/vip-consult";
 
-const TITLE = "Book a VIP Consultation | Meltaways Spa";
+const TITLE = "Book a VIP Consultation | Melt Aways";
 const DESC =
   "Apply for the Meltaways VIP Transformation Program. Share your goals, availability and preferences so our team can prepare for a focused VIP consultation.";
 

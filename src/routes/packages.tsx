@@ -5,8 +5,8 @@ import { PACKAGES } from "@/lib/site";
 
 export const Route = createFileRoute("/packages")({
   head: () => ({ meta: [
-    { title: "Treatment Packages — Melt Aways" },
-    { name: "description", content: "Curated treatment packages: Sculpt & Smooth, Melt & Tighten, Glow & Firm, Full Body Confidence, Wellness Reset." },
+    { title: "Body Contouring & Skin Treatment Packages in Trinidad | Melt Aways" },
+    { name: "description", content: "Treatment packages at Melt Aways in El Dorado, Trinidad: Sculpt & Smooth, Melt & Tighten, Glow & Firm, Full Body Confidence and Wellness Reset." },
   ]}),
   component: Packages,
 });
@@ -32,7 +32,7 @@ function Packages() {
             "Complete your consultation form",
             "Speak with our team by WhatsApp or call",
             "Choose your treatment plan",
-            "Visit Woodbrook or St. Augustine",
+            "Visit our El Dorado studio",
             "Complete your sessions and aftercare",
           ].map((step, i) => (
             <li key={step} className="bg-background rounded-2xl p-5 border border-border/60 flex gap-3">

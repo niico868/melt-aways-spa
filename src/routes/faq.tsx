@@ -3,12 +3,19 @@ import { useState } from "react";
 import { Plus, Minus } from "lucide-react";
 import { Section, Eyebrow } from "@/components/Section";
 import { FAQS } from "@/lib/site";
+import { jsonLdScript } from "@/lib/seo";
 
 export const Route = createFileRoute("/faq")({
   head: () => ({ meta: [
-    { title: "FAQ — Melt Aways" },
-    { name: "description", content: "Common questions about consultations, treatments, results, and booking at Melt Aways." },
-  ]}),
+    { title: "FAQ: Consultations, Treatments & Booking | Melt Aways Trinidad" },
+    { name: "description", content: "Answers about consultations, body contouring and skin treatments, results, deposits and booking at Melt Aways in El Dorado, Trinidad." },
+  ],
+  scripts: [jsonLdScript({
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: FAQS.map((f) => ({ "@type": "Question", name: f.q, acceptedAnswer: { "@type": "Answer", text: f.a } })),
+  })],
+  }),
   component: Faq,
 });
 

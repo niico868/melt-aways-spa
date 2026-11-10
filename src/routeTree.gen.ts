@@ -227,7 +227,7 @@ export interface FileRoutesById {
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
-    '/'
+    | '/'
     | '/about'
     | '/booking'
     | '/certifications'
@@ -252,7 +252,7 @@ export interface FileRouteTypes {
     | '/services/'
   fileRoutesByTo: FileRoutesByTo
   to:
-    '/'
+    | '/'
     | '/about'
     | '/booking'
     | '/certifications'
@@ -275,7 +275,7 @@ export interface FileRouteTypes {
     | '/journal'
     | '/services'
   id:
-    '__root__'
+    | '__root__'
     | '/'
     | '/about'
     | '/booking'
