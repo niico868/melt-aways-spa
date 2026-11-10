@@ -51,10 +51,14 @@ export function Header() {
         {/* RIGHT NAV + ACTIONS */}
         <div className="hidden lg:flex items-center justify-end gap-7">
           <nav className="flex items-center gap-7">
-            {NAV_RIGHT.map((n: any) => (
+            {NAV_RIGHT.filter((n) => n.to !== "/booking").map((n: any) => (
               <NavLink key={n.to} to={n.to} label={n.label} flag={n.flag} linkClass={linkClass} />
             ))}
           </nav>
+          {/* Primary action: always visible, always the same words as the hero. */}
+          <Link to="/booking" className="inline-flex items-center rounded-full bg-fresh text-fresh-foreground px-5 py-2.5 text-[13px] font-semibold tracking-[0.04em] btn-lux soft-shadow whitespace-nowrap">
+            Book Consultation
+          </Link>
         </div>
 
         {/* MOBILE TOGGLE */}

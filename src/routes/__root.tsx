@@ -10,6 +10,8 @@ import {
 } from "@tanstack/react-router";
 import { lazy, Suspense, type ReactNode } from "react";
 
+import { MotionConfig } from "framer-motion";
+
 import appCss from "../styles.css?url";
 import { DEFAULT_OG_IMAGE, businessJsonLd, canonicalUrl, jsonLdScript, ogImageMeta } from "@/lib/seo";
 
@@ -109,7 +111,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { rel: "preconnect", href: "https://fonts.gstatic.com", crossOrigin: "anonymous" },
       {
         rel: "stylesheet",
-        href: "https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&family=Playfair+Display:wght@400;500&display=swap",
+        href: "https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,400&family=Great+Vibes&family=Inter:wght@400;500;600;700;800&display=swap",
       },
     ],
     scripts: [jsonLdScript(businessJsonLd())],
@@ -142,10 +144,10 @@ function RootShell({ children }: { children: ReactNode }) {
 function RootComponent() {
   const { queryClient } = Route.useRouteContext();
 
-
-
   return (
     <QueryClientProvider client={queryClient}>
+      {/* Honour the visitor's "reduce motion" setting for all Framer Motion reveals. */}
+      <MotionConfig reducedMotion="user">
       <Suspense fallback={null}>
         <div data-public-chrome="site-progress"><ScrollProgress /></div>
         <div data-public-chrome="site-header"><Header /></div>
@@ -158,6 +160,7 @@ function RootComponent() {
         <div data-public-chrome="site-whatsapp"><WhatsAppFab /></div>
         <div data-public-chrome="site-audio"><AmbientAudio /></div>
       </Suspense>
+      </MotionConfig>
     </QueryClientProvider>
   );
 }

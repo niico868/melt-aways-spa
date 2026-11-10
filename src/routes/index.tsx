@@ -109,8 +109,8 @@ function RealResults() {
           Real Results, Real <em className="not-italic text-primary">Confidence</em>.
         </h2>
         <p className="mt-5 text-taupe max-w-2xl mx-auto">
-          See the difference personalized care and the right treatment plan can make. Each story below
-          is built around a real consultation, a real goal, and a real timeline.
+          See the difference personalized care and the right treatment plan can make. These are real
+          Melt Aways client results. Every body responds differently, so every plan starts with a consultation.
         </p>
 
         {/* Stat row */}
@@ -131,7 +131,7 @@ function RealResults() {
         {/* Result preview cards */}
         <div className="mt-16 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
           {RESULT_PREVIEWS.map((r) => (
-            <ResultCard key={r.name} {...r} />
+            <ResultCard key={r.treatment} {...r} />
           ))}
         </div>
 
@@ -145,26 +145,29 @@ function RealResults() {
   );
 }
 
-const RESULT_PREVIEWS = [
-  { name: "Amara",  treatment: "Body Contouring",   duration: "After 6 sessions", quote: "I feel lighter, stronger, and more confident in my own skin.", image: BA_IMAGES[6] },
-  { name: "Gary",   treatment: "Fat Melting",       duration: "After 8 weeks",    quote: "My clothes fit better and I finally feel like myself again.",   image: BA_IMAGES[0] },
-  { name: "Kiana",  treatment: "Skin Tightening",   duration: "After 4 sessions", quote: "I see a difference every time I look in the mirror.",          image: BA_IMAGES[5] },
-  { name: "Naomi",  treatment: "Stretch Mark Care", duration: "After 6 weeks",    quote: "My waist is more defined and I feel so much better.",          image: BA_IMAGES[2] },
+// Real client photos. Only add a name, timeframe or quote here once the client has
+// approved it — invented attributions on real before/after photos erode trust.
+const RESULT_PREVIEWS: { treatment: string; image: string; detail?: string; quote?: string }[] = [
+  { treatment: "Body Contouring",   image: BA_IMAGES[6] },
+  { treatment: "Fat Melting",       image: BA_IMAGES[0] },
+  { treatment: "Skin Tightening",   image: BA_IMAGES[5] },
+  { treatment: "Stretch Mark Care", image: BA_IMAGES[2] },
 ];
 
-function ResultCard({ name, treatment, duration, quote, image }: { name: string; treatment: string; duration: string; quote: string; image: string }) {
+function ResultCard({ treatment, image, detail, quote }: { treatment: string; image: string; detail?: string; quote?: string }) {
   return (
     <article className="bg-background rounded-3xl overflow-hidden border border-border/60 card-shadow lift-on-hover hover:-translate-y-1 text-left">
       <div className="aspect-[4/5] overflow-hidden bg-blush">
-        <img src={image} alt={`${name} – ${treatment} before & after`} className="w-full h-full object-contain" loading="eager" decoding="async" fetchPriority="high" />
+        <img src={image} alt={`${treatment} client result, before and after`} className="w-full h-full object-contain" loading="lazy" decoding="async" />
       </div>
       <div className="p-5">
-        <h3 className="font-serif text-2xl text-primary">{name}</h3>
-        <p className="mt-0.5 text-sm font-medium text-ink">{treatment}</p>
-        <p className="text-xs text-taupe">{duration}</p>
-        <p className="mt-3 text-sm italic text-taupe/90 leading-relaxed border-l-2 border-primary/30 pl-3">
-          "{quote}"
-        </p>
+        <h3 className="font-serif text-2xl text-primary">{treatment}</h3>
+        <p className="mt-0.5 text-xs text-taupe">{detail ?? "Melt Aways client · results vary"}</p>
+        {quote && (
+          <p className="mt-3 text-sm italic text-taupe/90 leading-relaxed border-l-2 border-primary/30 pl-3">
+            "{quote}"
+          </p>
+        )}
       </div>
     </article>
   );

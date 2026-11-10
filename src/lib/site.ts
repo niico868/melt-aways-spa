@@ -1,6 +1,9 @@
 import logoAsset from "@/assets/logo.media";
 import meaLogoAsset from "@/assets/mea-logo.png.media";
 
+/** Public production origin. Used for canonical URLs, the sitemap and structured data. */
+export const SITE_URL = "https://www.meltawaysspa.com";
+
 export const SITE = {
   name: "Melt Aways",
   tagline: "Where we melt fat and reveal the you inside.",
