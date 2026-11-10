@@ -3,9 +3,9 @@ import { Crown, Check, Phone, ClipboardList, CalendarClock, LineChart, RefreshCw
 import { Section } from "@/components/Section";
 import { SITE, waLink } from "@/lib/site";
 
-const TITLE = "VIP Transformation Program in Trinidad | Melt Aways";
+const TITLE = "VIP Transformation Program in Trinidad | Melt Elite Aesthetics";
 const DESC =
-  "A guided, personalized Meltaways programme combining suitable body, beauty and wellness treatments with progress tracking and one convenient monthly payment.";
+  "A guided, personalized Melt Elite Aesthetics programme combining suitable body, beauty and wellness treatments with progress tracking and one convenient monthly payment.";
 
 export const Route = createFileRoute("/vip")({
   head: () => ({
@@ -28,7 +28,7 @@ const INCLUDES = [
   "Lymphatic support",
   "Laser hair removal",
   "Red light therapy",
-  "Other suitable Meltaways body, beauty and wellness treatments",
+  "Other suitable Melt Elite Aesthetics body, beauty and wellness treatments",
 ];
 
 const BENEFITS = [
@@ -90,13 +90,13 @@ function VipPage() {
         <div className="rounded-[2rem] overflow-hidden border border-border/60 bg-cream/60 card-shadow">
           <div className="p-8 lg:p-12 flex flex-col justify-center">
             <p className="text-[11px] sm:text-xs uppercase tracking-[0.3em] text-primary font-semibold">
-              Meltaways VIP Transformation Program
+              Melt Elite Aesthetics VIP Transformation Program
             </p>
             <h1 className="mt-5 font-serif text-3xl lg:text-[2.9rem] leading-[1.08] text-gold">
               Your Goals. Your Plan.<span className="block">Your Complete Transformation Journey.</span>
             </h1>
             <p className="mt-5 text-taupe leading-relaxed max-w-xl">
-              The Meltaways VIP Transformation Program is designed for clients whose goals may require more
+              The Melt Elite Aesthetics VIP Transformation Program is designed for clients whose goals may require more
               than a single service or occasional appointment. Following a private consultation, we create a
               structured programme around your body, priorities, availability and progress.
             </p>
@@ -108,7 +108,7 @@ function VipPage() {
                 <Crown className="w-4 h-4" aria-hidden /> Book Your VIP Consultation
               </Link>
               <a
-                href={waLink("Hi Meltaways, I'd like to ask about the VIP Transformation Program.")}
+                href={waLink("Hi Melt Elite Aesthetics, I'd like to ask about the VIP Transformation Program.")}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 rounded-full bg-background border border-ink/15 px-6 py-3.5 font-medium hover:bg-blush lift-on-hover focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ink focus-visible:ring-offset-2"
@@ -202,7 +202,7 @@ function VipPage() {
         <div className="rounded-[2rem] border border-border/60 bg-cream/60 p-8 lg:p-12 text-center card-shadow">
           <h2 className="font-serif text-2xl lg:text-3xl text-gold">Limited availability</h2>
           <p className="mt-4 text-taupe leading-relaxed max-w-2xl mx-auto">
-            VIP spaces are intentionally limited. This allows the Meltaways team to give every member the
+            VIP spaces are intentionally limited. This allows the Melt Elite Aesthetics team to give every member the
             time, tracking and personalized attention their programme requires.
           </p>
           <div className="mt-8 flex flex-wrap justify-center gap-3">
@@ -213,7 +213,7 @@ function VipPage() {
               <Crown className="w-4 h-4" aria-hidden /> Book Your VIP Consultation
             </Link>
             <a
-              href={waLink("Hi Meltaways, I'd like to ask about the VIP Transformation Program.")}
+              href={waLink("Hi Melt Elite Aesthetics, I'd like to ask about the VIP Transformation Program.")}
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center gap-2 rounded-full bg-background border border-ink/15 px-6 py-3.5 font-medium hover:bg-blush lift-on-hover focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ink focus-visible:ring-offset-2"
@@ -221,7 +221,7 @@ function VipPage() {
               <Phone className="w-4 h-4" aria-hidden /> Call or WhatsApp 378-5630
             </a>
           </div>
-          <p className="mt-9 font-serif text-xl text-ink">Meltaways Spa</p>
+          <p className="mt-9 font-serif text-xl text-ink">Melt Elite Aesthetics</p>
           <p className="mt-1 font-serif italic text-gold">
             Where Confidence Begins and Your Transformation Starts.
           </p>

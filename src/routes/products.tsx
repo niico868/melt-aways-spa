@@ -1,11 +1,16 @@
-import { createFileRoute } from "@tanstack/react-router";
+import { createFileRoute, redirect } from "@tanstack/react-router";
 import { Section, Eyebrow } from "@/components/Section";
 import productsImg from "@/assets/products.jpg";
 import petals from "@/assets/petals.jpg";
 
+// Hidden until real products are ready: visitors are sent to Services.
+// To launch the shop, delete this beforeLoad and add /products back to the nav and sitemap.
 export const Route = createFileRoute("/products")({
+  beforeLoad: () => {
+    throw redirect({ to: "/services", replace: true });
+  },
   head: () => ({ meta: [
-    { title: "Products — Melt Aways" },
+    { title: "Products — Melt Elite Aesthetics" },
     { name: "description", content: "Our curated wellness and aftercare products — coming soon." },
   ]}),
   component: Products,

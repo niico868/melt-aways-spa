@@ -14,10 +14,10 @@ export const Route = createFileRoute("/booking")({
   validateSearch: (search: Record<string, unknown>): { service?: string } =>
     typeof search.service === "string" ? { service: search.service } : {},
   head: () => ({ meta: [
-    { title: "Book a Consultation or Treatment | Melt Aways, El Dorado Trinidad" },
-    { name: "description", content: "Choose a treatment, pick an open time and book your Melt Aways appointment online." },
-    { property: "og:title", content: "Book an Appointment — Melt Aways" },
-    { property: "og:description", content: "Choose a treatment, pick an open time and book your Melt Aways appointment online." },
+    { title: "Book a Consultation or Treatment | Melt Elite Aesthetics, El Dorado Trinidad" },
+    { name: "description", content: "Choose a treatment, pick an open time and book your Melt Elite Aesthetics appointment online." },
+    { property: "og:title", content: "Book an Appointment — Melt Elite Aesthetics" },
+    { property: "og:description", content: "Choose a treatment, pick an open time and book your Melt Elite Aesthetics appointment online." },
     { property: "og:type", content: "website" },
     { name: "twitter:card", content: "summary" },
   ]}),

@@ -9,9 +9,9 @@ import {
   emptyVipForm, validateVipStep, type VipFormState, type YesNo,
 } from "@/lib/vip-consult";
 
-const TITLE = "Book a VIP Consultation | Melt Aways";
+const TITLE = "Book a VIP Consultation | Melt Elite Aesthetics";
 const DESC =
-  "Apply for the Meltaways VIP Transformation Program. Share your goals, availability and preferences so our team can prepare for a focused VIP consultation.";
+  "Apply for the Melt Elite Aesthetics VIP Transformation Program. Share your goals, availability and preferences so our team can prepare for a focused VIP consultation.";
 
 export const Route = createFileRoute("/vipconsult")({
   head: () => ({
@@ -205,7 +205,7 @@ function VipConsultPage() {
             </span>
             <h1 className="mt-6 font-serif text-3xl text-gold">Your VIP consultation request has been received.</h1>
             <p className="mt-4 text-taupe leading-relaxed">
-              The Meltaways team will review your goals and contact you to arrange the next step. Your
+              The Melt Elite Aesthetics team will review your goals and contact you to arrange the next step. Your
               programme, treatment options and schedule will only be confirmed after your consultation.
             </p>
             <div className="mt-8 flex flex-wrap justify-center gap-3">
@@ -213,7 +213,7 @@ function VipConsultPage() {
                 Return to Homepage
               </Link>
               <a
-                href={waLink("Hi Meltaways, I just submitted a VIP consultation request.")}
+                href={waLink("Hi Melt Elite Aesthetics, I just submitted a VIP consultation request.")}
                 target="_blank" rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 rounded-full bg-background border border-ink/15 px-6 py-3.5 font-medium hover:bg-blush"
               >
@@ -231,14 +231,14 @@ function VipConsultPage() {
       <Section className="!py-14">
         <div className="max-w-3xl mx-auto">
           <p className="text-[11px] uppercase tracking-[0.3em] text-primary font-semibold">
-            Meltaways VIP Transformation Program
+            Melt Elite Aesthetics VIP Transformation Program
           </p>
           <h1 className="mt-4 font-serif text-3xl lg:text-[2.6rem] leading-tight text-gold">
             Let’s Build Your Transformation Plan.
           </h1>
           <p className="mt-4 text-taupe leading-relaxed">
             Tell us where you are now, what you would like to work toward and the level of support you are
-            looking for. Your answers will help the Meltaways team prepare for a more focused VIP consultation.
+            looking for. Your answers will help the Melt Elite Aesthetics team prepare for a more focused VIP consultation.
           </p>
 
           <ol className="mt-8 flex flex-wrap gap-2" aria-label="Form progress">
@@ -303,7 +303,7 @@ function VipConsultPage() {
                       <Err msg={errors.preferred_contact} />
                     </div>
                     <div>
-                      <Label htmlFor="location">Preferred Meltaways location</Label>
+                      <Label htmlFor="location">Preferred Melt Elite Aesthetics location</Label>
                       <select id="location" className={field} value={f.location} onChange={(e) => set("location", e.target.value)}>
                         <option value="El Dorado">El Dorado</option>
                       </select>
@@ -480,7 +480,7 @@ function VipConsultPage() {
                     ["confirm_accurate", "The information I have submitted is accurate to the best of my knowledge."],
                     ["confirm_not_guaranteed", "I understand that submitting this form does not guarantee acceptance into the VIP programme."],
                     ["confirm_consultation_required", "I understand that a professional consultation is required before any treatment plan is confirmed."],
-                    ["consent_contact", "I consent to Meltaways contacting me about my consultation."],
+                    ["consent_contact", "I consent to Melt Elite Aesthetics contacting me about my consultation."],
                     ["confirm_privacy", "I have reviewed the privacy policy."],
                   ] as const).map(([key, label]) => (
                     <div key={key}>
@@ -546,7 +546,7 @@ function VipConsultPage() {
 
           <p className="mt-6 text-center text-sm text-taupe">
             Prefer to talk?{" "}
-            <a href={waLink("Hi Meltaways, I'd like to ask about the VIP Transformation Program.")}
+            <a href={waLink("Hi Melt Elite Aesthetics, I'd like to ask about the VIP Transformation Program.")}
               target="_blank" rel="noopener noreferrer" className="text-primary underline underline-offset-4">
               Call or WhatsApp 378-5630
             </a>

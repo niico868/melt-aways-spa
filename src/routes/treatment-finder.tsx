@@ -15,9 +15,9 @@ import { easeLux } from "@/lib/motion";
 export const Route = createFileRoute("/treatment-finder")({
   head: () => ({
     meta: [
-      { title: "Treatment Finder — Personalized Treatment Match | Melt Aways" },
-      { name: "description", content: "Answer a few quick questions about your goals, concerns, and timeline. We'll suggest the right Melt Aways treatment path and tell you if you qualify for a free consultation." },
-      { property: "og:title", content: "Melt Aways · Treatment Finder" },
+      { title: "Treatment Finder — Personalized Treatment Match | Melt Elite Aesthetics" },
+      { name: "description", content: "Answer a few quick questions about your goals, concerns, and timeline. We'll suggest the right Melt Elite Aesthetics treatment path and tell you if you qualify for a free consultation." },
+      { property: "og:title", content: "Melt Elite Aesthetics · Treatment Finder" },
       { property: "og:description", content: "Personalized body, skin & wellness treatment recommendations — built around your goals." },
     ],
   }),
@@ -93,7 +93,7 @@ function TreatmentFinderPage() {
 
   if (done) {
     const pkg = PACKAGES.find((p) => p.name === done.suggested);
-    const message = `Hi Melt Aways, I just completed the Treatment Finder. My suggested plan is ${done.suggested}. I'd love to book a consultation.`;
+    const message = `Hi Melt Elite Aesthetics, I just completed the Treatment Finder. My suggested plan is ${done.suggested}. I'd love to book a consultation.`;
     return (
       <Section>
         <motion.div
@@ -229,7 +229,7 @@ function TreatmentFinderPage() {
           )}
         </div>
         {sendFailed && (
-          <EnquiryError message={`Hi Melt Aways, I tried the Treatment Finder but it wouldn't send. My name is ${a.fullName}.`} />
+          <EnquiryError message={`Hi Melt Elite Aesthetics, I tried the Treatment Finder but it wouldn't send. My name is ${a.fullName}.`} />
         )}
       </div>
     </Section>

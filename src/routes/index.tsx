@@ -25,9 +25,9 @@ import homeButtFiller from "@/assets/treatments/Butt_Lift.png.media";
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Melt Aways · Personalized Body Contouring for Real Bodies | Trinidad & Tobago" },
+      { title: "Melt Elite Aesthetics · Personalized Body Contouring for Real Bodies | Trinidad & Tobago" },
       { name: "description", content: "Consultation-led body contouring, skin tightening, and wellness treatments in Trinidad & Tobago. Personalized care plans built around real goals, real bodies, and honest conversation." },
-      { property: "og:title", content: "Melt Aways · Personalized Body Contouring for Real Bodies" },
+      { property: "og:title", content: "Melt Elite Aesthetics · Personalized Body Contouring for Real Bodies" },
       { property: "og:description", content: "Real bodies. Real goals. Consultation first. Premium body contouring and wellness in Trinidad & Tobago." },
       { property: "og:image", content: absoluteUrl(heroBanner.url) },
       { name: "twitter:card", content: "summary_large_image" },
@@ -110,7 +110,7 @@ function RealResults() {
         </h2>
         <p className="mt-5 text-taupe max-w-2xl mx-auto">
           See the difference personalized care and the right treatment plan can make. These are real
-          Melt Aways client results. Every body responds differently, so every plan starts with a consultation.
+          Melt Elite Aesthetics client results. Every body responds differently, so every plan starts with a consultation.
         </p>
 
         {/* Stat row */}
@@ -162,7 +162,7 @@ function ResultCard({ treatment, image, detail, quote }: { treatment: string; im
       </div>
       <div className="p-5">
         <h3 className="font-serif text-2xl text-primary">{treatment}</h3>
-        <p className="mt-0.5 text-xs text-taupe">{detail ?? "Melt Aways client · results vary"}</p>
+        <p className="mt-0.5 text-xs text-taupe">{detail ?? "Melt Elite Aesthetics client · results vary"}</p>
         {quote && (
           <p className="mt-3 text-sm italic text-taupe/90 leading-relaxed border-l-2 border-primary/30 pl-3">
             "{quote}"
@@ -489,7 +489,7 @@ function VisitingTrinidad() {
           </div>
         </div>
         <div className="relative min-h-[260px] lg:min-h-full bg-cream">
-          <img src={maVisiting.url} alt="Travel planning setup for visiting Melt Aways clients" className="w-full h-full object-cover" loading="lazy" />
+          <img src={maVisiting.url} alt="Travel planning setup for visiting Melt Elite Aesthetics clients" className="w-full h-full object-cover" loading="lazy" />
           <div className="absolute inset-x-0 top-0 h-24 bg-gradient-to-b from-background via-background/70 to-transparent lg:hidden" aria-hidden />
           <div className="absolute inset-y-0 left-0 hidden lg:block w-28 bg-gradient-to-r from-background via-background/72 to-transparent" aria-hidden />
         </div>

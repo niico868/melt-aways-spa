@@ -7,8 +7,8 @@ import { jsonLdScript } from "@/lib/seo";
 
 export const Route = createFileRoute("/faq")({
   head: () => ({ meta: [
-    { title: "FAQ: Consultations, Treatments & Booking | Melt Aways Trinidad" },
-    { name: "description", content: "Answers about consultations, body contouring and skin treatments, results, deposits and booking at Melt Aways in El Dorado, Trinidad." },
+    { title: "FAQ: Consultations, Treatments & Booking | Melt Elite Aesthetics Trinidad" },
+    { name: "description", content: "Answers about consultations, body contouring and skin treatments, results, deposits and booking at Melt Elite Aesthetics in El Dorado, Trinidad." },
   ],
   scripts: [jsonLdScript({
     "@context": "https://schema.org",

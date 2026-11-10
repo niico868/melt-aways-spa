@@ -14,7 +14,7 @@ export function Footer() {
               alt="Melt Elite Aesthetics"
               className="h-28 w-auto [filter:contrast(1.15)_saturate(1.35)]"
             />
-            <span className="text-xs text-taupe italic tracking-wide">a subsidiary of</span>
+            <span className="text-xs text-taupe italic tracking-wide">sister brand of</span>
             <img src={newMasLogo.url} alt="Melt Aways Spa" className="h-24 w-auto" />
           </div>
           <p className="mt-4 max-w-sm text-sm text-taupe leading-relaxed">
@@ -51,7 +51,7 @@ export function Footer() {
         </div>
       </div>
       <div className="border-t border-border py-6 text-center text-xs text-taupe">
-        © {new Date().getFullYear()} Melt Aways. All rights reserved. Treatments require consultation. Results vary.
+        © {new Date().getFullYear()} Melt Elite Aesthetics. All rights reserved. Treatments require consultation. Results vary.
       </div>
     </footer>
   );

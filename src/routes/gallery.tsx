@@ -6,8 +6,8 @@ import { GALLERY } from "@/lib/ba";
 
 export const Route = createFileRoute("/gallery")({
   head: () => ({ meta: [
-    { title: "Before & After Gallery: Body Contouring Results | Melt Aways Trinidad" },
-    { name: "description", content: "Before and after photos from Melt Aways clients organised by treatment category. Results vary. Consultation required." },
+    { title: "Before & After Gallery: Body Contouring Results | Melt Elite Aesthetics Trinidad" },
+    { name: "description", content: "Before and after photos from Melt Elite Aesthetics clients organised by treatment category. Results vary. Consultation required." },
   ]}),
   component: Gallery,
 });
@@ -21,7 +21,7 @@ function Gallery() {
         <Eyebrow>Client Results</Eyebrow>
         <h1 className="text-4xl lg:text-6xl font-light text-ink leading-tight">Before & After Gallery</h1>
         <p className="mt-5 text-taupe leading-relaxed">
-          Real Melt Aways clients, organised by treatment category. Tap any photo to view it larger.
+          Real Melt Elite Aesthetics clients, organised by treatment category. Tap any photo to view it larger.
         </p>
         <p className="mt-3 text-xs italic text-taupe">Results vary. Consultation required.</p>
       </div>

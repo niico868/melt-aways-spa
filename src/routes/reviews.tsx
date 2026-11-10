@@ -4,8 +4,8 @@ import { REVIEWS } from "@/lib/site";
 
 export const Route = createFileRoute("/reviews")({
   head: () => ({ meta: [
-    { title: "Client Reviews | Melt Aways Body Contouring, Trinidad" },
-    { name: "description", content: "Real reviews from Melt Aways clients in Trinidad & Tobago about body contouring, skin tightening and our consultation-first approach." },
+    { title: "Client Reviews | Melt Elite Aesthetics Body Contouring, Trinidad" },
+    { name: "description", content: "Real reviews from Melt Elite Aesthetics clients in Trinidad & Tobago about body contouring, skin tightening and our consultation-first approach." },
   ]}),
   component: Reviews,
 });

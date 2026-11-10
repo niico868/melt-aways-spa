@@ -11,8 +11,8 @@ export const Route = createFileRoute("/journal/$slug")({
   },
   head: ({ params }) => {
     const article = getJournalArticle(params.slug);
-    const title = article ? `${article.title} | Melt Aways Journal` : "Journal Article | Melt Aways";
-    const description = article?.description ?? "Read the latest treatment guidance and consultation-first advice from Melt Aways.";
+    const title = article ? `${article.title} | Melt Elite Aesthetics Journal` : "Journal Article | Melt Elite Aesthetics";
+    const description = article?.description ?? "Read the latest treatment guidance and consultation-first advice from Melt Elite Aesthetics.";
     return {
       meta: [
         { title },

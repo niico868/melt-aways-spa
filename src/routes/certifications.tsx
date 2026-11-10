@@ -18,16 +18,16 @@ import {
 export const Route = createFileRoute("/certifications")({
   head: () => ({
     meta: [
-      { title: "Certifications · Professionally Trained. Continuously Certified. | Melt Aways" },
+      { title: "Certifications · Professionally Trained. Continuously Certified. | Melt Elite Aesthetics" },
       {
         name: "description",
         content:
-          "Every Melt Aways treatment is backed by internationally recognized training. Explore the certifications, institutions, and skills behind our care.",
+          "Every Melt Elite Aesthetics treatment is backed by internationally recognized training. Explore the certifications, institutions, and skills behind our care.",
       },
-      { property: "og:title", content: "Melt Aways · Professional Certifications" },
+      { property: "og:title", content: "Melt Elite Aesthetics · Professional Certifications" },
       {
         property: "og:description",
-        content: "Formal training, not trends. Explore the credentials behind every Melt Aways treatment.",
+        content: "Formal training, not trends. Explore the credentials behind every Melt Elite Aesthetics treatment.",
       },
     ],
   }),
