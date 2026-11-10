@@ -78,10 +78,10 @@ export const NAV_LEFT = [
   { to: "/visiting", label: "Visiting", flag: true },
   { to: "/", label: "Home" },
   { to: "/services", label: "Services" },
-  { to: "/packages", label: "Packages" },
 ] as const;
 
 export const NAV_RIGHT = [
+  { to: "/packages", label: "Packages" },
   { to: "/journal", label: "Journal" },
   { to: "/gallery", label: "Gallery" },
   { to: "/booking", label: "Booking" },
