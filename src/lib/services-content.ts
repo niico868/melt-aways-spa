@@ -347,29 +347,122 @@ export const SERVICES_CONTENT: Record<string, ServiceContent> = {
   },
   "butt-filler": {
     slug: "butt-filler",
-    tagline: "",
-    overview: "",
-    howItWorks: "",
-    benefits: [],
-    idealFor: [],
-    whatToExpect: "",
-    aftercare: "",
+    tagline: "Subtle, carefully planned volume and shape for the buttocks",
+    overview: "Injectable buttock enhancement is a medical aesthetic procedure that uses a selected filler or collagen-stimulating product to add limited volume or refine the shape of the buttocks without implants or fat-transfer surgery. Depending on your anatomy and medical suitability, it may be considered for mild hollowing at the sides of the hips, limited loss of fullness, small contour irregularities or mild differences between the two sides. It does not provide the size increase or lift possible with surgery. Because buttock injections carry serious risks, a detailed medical assessment, full product disclosure and informed consent are essential before treatment.",
+    howItWorks: "Following a medical and body assessment, the proposed treatment areas are photographed, measured and carefully marked. The exact product, its regulatory status, how it works, expected duration, possible risks and available methods of managing complications should be explained before treatment. Some products add volume directly, while collagen-stimulating products are intended to build gradual fullness over a series of appointments. The skin is cleansed, and local anaesthesia or another comfort measure may be used. A qualified medical professional then places controlled amounts of product into selected areas using medically appropriate injection equipment. Treatment is often staged so that healing, symmetry and tissue response can be reviewed before more product is considered.",
+    benefits: ["May provide a limited increase in buttock fullness",
+    "May soften hollowing at the sides of the hips",
+    "Can refine selected contour depressions or irregularities",
+    "May improve mild differences between the two sides",
+    "Can create a smoother, more rounded-looking outline",
+    "Offers a non surgical option for carefully selected clients",
+    "Allows treatment to be planned in controlled stages",
+    "Focuses on subtle enhancement rather than major enlargement"],
+    idealFor: ["Mild hollowing at the sides of the hips",
+    "Limited loss of buttock fullness",
+    "A flatter-looking upper buttock",
+    "Small contour depressions or irregularities",
+    "Mild differences between the two sides",
+    "Clients seeking a small and carefully planned change",
+    "Clients with realistic expectations about non surgical enhancement",
+    "Clients medically cleared for treatment with the proposed product"],
+    whatToExpect: "Your consultation should include a review of your medical history, medication, allergies, previous procedures and any earlier injections in the area, including any product whose name you do not know. The area may be examined, photographed, measured and marked before treatment. During injection, you may experience stinging, pressure, tightness or fullness. The area is assessed afterwards for symmetry, circulation, swelling, bleeding and immediate reactions. Some fullness may be visible immediately, although swelling can temporarily distort the result, and collagen-stimulating products develop gradually over the following weeks. Tenderness, bruising, firmness, temporary asymmetry or small irregularities may occur while the area settles.",
+    aftercare: "Keep the injection sites clean and dry as instructed. Follow any sitting, sleeping and positioning instructions, avoid strenuous exercise, tight pressure on the area and excessive heat for the period directed, and do not rub or massage the area unless specifically advised. Attend every scheduled review and keep a record of the name, manufacturer, batch information and treatment date of the product used. Contact Melt Elite Aesthetics immediately for increasing pain, heat, redness, discharge, unusual firmness or changes in skin colour, temperature or sensation. Seek emergency care for chest pain, difficulty breathing, fainting, confusion, sudden weakness or another severe reaction.",
     duration: "Procedure time depends on the product selected, the amount administered, the size of the area being treated and whether the enhancement is completed in stages. Consultation, preparation, monitoring and recovery requirements will be explained before treatment.",
-    sessions: "",
-    faqs: [],
+    sessions: "Some clients may receive treatment during one appointment, while others, particularly those receiving a collagen-stimulating product, require a planned series spaced several weeks apart. Additional product should only be considered after healing, symmetry and tissue response have been properly reviewed. More product does not automatically provide a safer or more natural result.",
+    faqs: [{
+      question: "When may I notice results?",
+      answer: "Some fullness may be visible immediately, but swelling can temporarily affect the appearance of the area and should not be mistaken for the final result. Collagen-stimulating products work gradually, so the outcome becomes clearer over the following weeks and months. A particular size, measurement or shape cannot be guaranteed."
+    },
+    {
+      question: "Is this the same as a Brazilian butt lift?",
+      answer: "No. A Brazilian butt lift is a surgical procedure that moves your own fat from one part of the body to the buttocks. Injectable enhancement uses a manufactured product, adds a much smaller amount of volume and cannot lift sagging skin. A plastic-surgery consultation may be more appropriate when significant enlargement or lifting is the main goal."
+    },
+    {
+      question: "How long may the results last?",
+      answer: "Duration depends on the exact product, amount administered, placement, activity level, weight changes and individual response. A reliable timeframe cannot be given until the proposed product has been identified and assessed."
+    },
+    {
+      question: "Can the product be removed?",
+      answer: "That depends entirely on the injected material. Some products may have a method of partial or attempted reversal, while others can be difficult or impossible to remove completely. Correction may require additional treatment, imaging, drainage or surgery, and may not correct tissue damage, scarring or migrated product."
+    },
+    {
+      question: "Is there downtime?",
+      answer: "Some interruption to your normal routine may be required. Temporary swelling, bruising, tenderness, firmness, discomfort when sitting, small lumps or unevenness may occur. Recovery depends on the product, amount injected, placement and your individual response."
+    },
+    {
+      question: "What should I know about the product being injected?",
+      answer: "Before treatment, you should receive the exact product name, active material, manufacturer, batch information, expiration date, regulatory status, intended medical use, expected duration, known risks and available removal or management options. You should also be told whether buttock enhancement is an approved or off-label use. Do not proceed when the substance is described only by a vague term such as body filler, butt shots, modelling gel or biopolymer."
+    },
+    {
+      question: "Can injectable silicone be used?",
+      answer: "No. Free liquid silicone and other unidentified substances should never be injected into the buttocks. They can travel through the body and cause severe infection, hard lumps, disfigurement, blood-vessel blockage, lung complications and death. Treatment offered in a home, hotel or other non-medical setting should be avoided."
+    },
+    {
+      question: "Is buttock enhancement safe?",
+      answer: "Proper assessment, sterile equipment, a verified product and an appropriately qualified medical professional may reduce risk, but cannot make the procedure risk-free. Complications may include infection, bleeding, inflammatory reactions, hard nodules, migration, asymmetry, tissue damage, blocked blood vessels, embolism, lung complications, permanent deformity, serious injury or death. Certain problems may emerge months or years later."
+    },
+    {
+      question: "Who may not be suitable?",
+      answer: "Treatment may be unsuitable if you are pregnant, breastfeeding or attempting pregnancy; have an active infection, bleeding disorder, uncontrolled diabetes, impaired healing, autoimmune condition or another serious medical condition; or have had previous injections involving an unknown product, silicone or biopolymer in the area. Medical clearance, imaging or referral to a specialist may be necessary."
+    }],
   },
   "cavitation": {
     slug: "cavitation",
-    tagline: "",
-    overview: "",
-    howItWorks: "",
-    benefits: [],
-    idealFor: [],
-    whatToExpect: "",
-    aftercare: "",
+    tagline: "Non surgical ultrasound treatment for small areas of stubborn fat",
+    overview: "Ultrasonic cavitation is a non surgical body-contouring treatment that uses low-frequency ultrasound to target small pockets of localised fat. It may be recommended for areas such as the abdomen, waist, love handles, thighs or upper arms when fat remains despite a stable weight. Cavitation is intended to refine contours rather than produce major weight loss, and results build gradually over a series of sessions. A consultation is required to confirm that cavitation is suitable for you and what level of change would be realistic.",
+    howItWorks: "A handheld applicator delivers low-frequency ultrasound energy into the fatty layer beneath the skin. This energy is intended to create pressure changes within selected fat cells, which may disrupt them so their contents can be gradually processed and removed by the body. A conducting gel is applied to the skin so the energy passes through evenly, and the applicator is moved continuously across the marked area. Cavitation may be combined with radiofrequency to address skin firmness or with lymphatic drainage to support fluid movement, when those combinations are considered suitable.",
+    benefits: ["May reduce the appearance of small pockets of resistant fat",
+    "Refines the contour of selected areas",
+    "Non surgical, with no needles or incisions",
+    "Little or no interruption to normal activities for most clients",
+    "May improve definition around the waist and abdomen",
+    "Can be combined with skin tightening or lymphatic drainage",
+    "Can complement a wider body-contouring programme"],
+    idealFor: ["Lower or upper abdominal fullness",
+    "Fat around the waist and love handles",
+    "Inner or outer thigh fullness",
+    "Upper arm fullness",
+    "Small pockets of back or bra-line fullness",
+    "Localised fat remaining after weight loss",
+    "Clients at or near a stable weight",
+    "Clients seeking gradual, non surgical contour refinement"],
+    whatToExpect: "Your area is assessed, measured and photographed before treatment. Gel is applied and the applicator is moved slowly across the skin. You may feel warmth, light pressure or vibration, and many clients hear a high-pitched ringing or buzzing sound in the ears while the device is working, which stops when treatment ends. The treatment should not be painful; tell your practitioner straight away about burning, sharp pain or discomfort. Afterwards the area may be slightly red or warm for a short time. Changes usually develop gradually over the course of your sessions rather than immediately.",
+    aftercare: "Maintain normal hydration unless medically restricted, resume light movement and walking, and avoid alcohol and heavy meals immediately after treatment as directed. Avoid excessive heat on the treated area for the period advised. Continue balanced eating and regular physical activity to help maintain your results. Contact Melt Elite Aesthetics if you develop blistering, persistent pain, unusual bruising, worsening swelling or another unexpected reaction. The instructions provided by your practitioner should always take priority.",
     duration: "Appointment length varies according to the size and number of areas being treated and whether cavitation is combined with another suitable technique. Your expected treatment time will be confirmed during consultation.",
-    sessions: "",
-    faqs: [],
+    sessions: "Cavitation is usually recommended as a series of sessions spaced several days or more apart, so the body has time to respond between treatments. The number of sessions depends on the area, the amount of fat, skin firmness and your goals. Progress should be reviewed during the course, and additional sessions should be based on reassessment rather than a fixed package alone.",
+    faqs: [{
+      question: "When may I notice a difference?",
+      answer: "Changes generally develop gradually across a course of sessions rather than after a single appointment. Timing may be influenced by the area treated, the amount of fat, skin firmness, weight stability, hydration and lifestyle."
+    },
+    {
+      question: "Does cavitation hurt?",
+      answer: "Most clients describe warmth, light pressure or vibration rather than pain. A ringing sound in the ears during treatment is common and temporary. Tell your practitioner immediately if you feel burning, sharp pain or anything unusual."
+    },
+    {
+      question: "Is there downtime?",
+      answer: "Most clients return to normal activities straight away. Temporary redness, warmth, mild tenderness or tingling may occur in the treated area."
+    },
+    {
+      question: "Is cavitation a weight-loss treatment?",
+      answer: "No. Cavitation is intended to refine selected areas of localised fat rather than treat general weight gain or produce major weight loss. It does not replace exercise, balanced nutrition or medically supervised weight management."
+    },
+    {
+      question: "How long may the results last?",
+      answer: "Results may be maintained for an extended period, but remaining fat cells can still enlarge if body weight increases. Stable weight, balanced nutrition, regular physical activity and suitable maintenance treatments may help preserve the outcome."
+    },
+    {
+      question: "Can cavitation be combined with other treatments?",
+      answer: "Yes, when each treatment has a clear purpose and the combination is considered suitable. Radiofrequency may address reduced skin firmness, lymphatic drainage may assist with temporary fluid retention, and muscle toning may address the underlying muscle. Combining treatments does not automatically produce a better result."
+    },
+    {
+      question: "Is cavitation safe?",
+      answer: "Cavitation may be performed safely when the client is properly screened, suitable equipment is used and the practitioner is appropriately trained. Possible reactions include redness, warmth, tenderness, bruising, temporary tingling, skin irritation and, rarely, burns. The risks of the specific device should be explained before consent."
+    },
+    {
+      question: "Who may need treatment postponed or medical clearance?",
+      answer: "Treatment may need to be postponed or medically cleared if you are pregnant or breastfeeding; have a pacemaker, metal implant or implanted electronic device in or near the area; or have liver or kidney disease, high cholesterol under treatment, a bleeding disorder, an active infection, an unexplained lump, a hernia, recent surgery, cancer, reduced sensation or another condition that could affect treatment or recovery."
+    }],
   },
   "lymphatic-drainage": {
     slug: "lymphatic-drainage",
