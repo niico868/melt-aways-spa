@@ -8,7 +8,7 @@ import {
   availableSlots, describeHours, formatTime, isDateDisabled, toIso, type Busy,
 } from "@/lib/booking-slots";
 
-import { BOOKING_API_URL, normalizeServiceName } from "@/lib/booking-api";
+import { BOOKING_API_URL, EMAIL_ERROR, isValidEmail, normalizeServiceName } from "@/lib/booking-api";
 
 export const Route = createFileRoute("/booking")({
   validateSearch: (search: Record<string, unknown>): { service?: string } =>
@@ -91,6 +91,7 @@ function Booking() {
     setError("");
     if (!service || !date || !time) { setError("Please choose a service, date and time."); return; }
     const f = new FormData(e.currentTarget);
+    if (!isValidEmail(String(f.get("email") || ""))) { setError(EMAIL_ERROR); return; }
     setSubmitting(true);
     try {
       const name = String(f.get("name") || "").trim();
@@ -219,7 +220,7 @@ function Booking() {
         <div className="grid sm:grid-cols-2 gap-5">
           <div><label htmlFor="bk-name" className="text-sm font-medium text-ink">Full name <span className="text-primary">*</span></label><input id="bk-name" name="name" required autoComplete="name" className={inputCls} /></div>
           <div><label htmlFor="bk-phone" className="text-sm font-medium text-ink">Phone / WhatsApp <span className="text-primary">*</span></label><input id="bk-phone" name="phone" type="tel" required autoComplete="tel" inputMode="tel" className={inputCls} /></div>
-          <div className="sm:col-span-2"><label htmlFor="bk-email" className="text-sm font-medium text-ink">Email <span className="text-taupe font-normal">(for your confirmation)</span></label><input id="bk-email" name="email" type="email" autoComplete="email" className={inputCls} /></div>
+          <div className="sm:col-span-2"><label htmlFor="bk-email" className="text-sm font-medium text-ink">Email <span className="text-primary">*</span> <span className="text-taupe font-normal">(we'll email your confirmation here)</span></label><input id="bk-email" name="email" type="email" required autoComplete="email" inputMode="email" className={inputCls} /></div>
           <div className="sm:col-span-2"><label htmlFor="bk-notes" className="text-sm font-medium text-ink">Notes</label><textarea id="bk-notes" name="notes" rows={3} className={inputCls} /></div>
         </div>
         <input type="text" name="mk_hp" tabIndex={-1} autoComplete="off" aria-hidden="true"

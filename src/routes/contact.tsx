@@ -3,7 +3,7 @@ import { useState } from "react";
 import { MapPin, Clock, Phone, Mail, Instagram, Facebook, MessageCircle } from "lucide-react";
 import { Section, Eyebrow } from "@/components/Section";
 import { SITE, waLink, waClick } from "@/lib/site";
-import { postEnquiry } from "@/lib/booking-api";
+import { EMAIL_ERROR, isValidEmail, postEnquiry } from "@/lib/booking-api";
 
 export const Route = createFileRoute("/contact")({
   head: () => ({ meta: [
@@ -15,9 +15,12 @@ export const Route = createFileRoute("/contact")({
 
 function Contact() {
   const [sent, setSent] = useState(false);
+  const [emailError, setEmailError] = useState("");
   function onSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
     const f = new FormData(e.currentTarget);
+    if (!isValidEmail(String(f.get("email") || ""))) { setEmailError(EMAIL_ERROR); return; }
+    setEmailError("");
     const msg = [
       "Hi Melt Elite Aesthetics, I just sent a message from the contact form.",
       `Name: ${f.get("name") || ""}`,
@@ -96,7 +99,8 @@ function Contact() {
           ) : (
             <>
               <input required name="name" placeholder="Full name" aria-label="Full name" autoComplete="name" className="w-full rounded-2xl border border-input bg-cream/40 px-4 py-3 outline-none focus:border-primary" />
-              <input required type="email" name="email" placeholder="Email" aria-label="Email" autoComplete="email" className="w-full rounded-2xl border border-input bg-cream/40 px-4 py-3 outline-none focus:border-primary" />
+              <input required type="email" name="email" placeholder="Email" aria-label="Email" autoComplete="email" inputMode="email" aria-invalid={!!emailError} className="w-full rounded-2xl border border-input bg-cream/40 px-4 py-3 outline-none focus:border-primary" />
+              {emailError && <p role="alert" className="-mt-3 text-xs text-destructive">{emailError}</p>}
               <input required type="tel" name="phone" placeholder="Phone" aria-label="Phone" autoComplete="tel" className="w-full rounded-2xl border border-input bg-cream/40 px-4 py-3 outline-none focus:border-primary" />
               <textarea required name="message" rows={5} placeholder="How can we help?" aria-label="Your message" className="w-full rounded-2xl border border-input bg-cream/40 px-4 py-3 outline-none focus:border-primary" />
               <input type="text" name="mk_hp" tabIndex={-1} autoComplete="off" aria-hidden="true"

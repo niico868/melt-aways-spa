@@ -3,7 +3,7 @@ import { useState } from "react";
 import { Plane, MessageCircle, Check } from "lucide-react";
 import { Section, Eyebrow } from "@/components/Section";
 import { CONCIERGE_WA, CONCIERGE_MESSAGE, waLink, waClick } from "@/lib/site";
-import { postEnquiry } from "@/lib/booking-api";
+import { EMAIL_ERROR, isValidEmail, postEnquiry } from "@/lib/booking-api";
 import { EnquiryError } from "@/components/EnquiryError";
 
 export const Route = createFileRoute("/visiting")({
@@ -20,6 +20,7 @@ function Visiting() {
   const [done, setDone] = useState(false);
   const [submitting, setSubmitting] = useState(false);
   const [sendFailed, setSendFailed] = useState(false);
+  const [emailError, setEmailError] = useState("");
   const [form, setForm] = useState({
     name: "", email: "", country: "", arrival: "", departure: "", occasion: "", interest: "",
     concern: "", whatsapp: "", urgency: "", priorTreatments: "", priorList: [] as string[], medical: "",
@@ -30,6 +31,8 @@ function Visiting() {
 
   async function submit(e: React.FormEvent) {
     e.preventDefault();
+    setEmailError("");
+    if (!isValidEmail(form.email)) { setEmailError(EMAIL_ERROR); return; }
     const msg = [
       "Hi Melt Elite Aesthetics, I am planning treatment before visiting Trinidad.",
       `Name: ${form.name}`,
@@ -102,7 +105,10 @@ function Visiting() {
         <form onSubmit={submit} className="max-w-3xl mx-auto bg-background rounded-3xl p-8 lg:p-12 card-shadow border border-border/60 grid gap-5">
           <div className="flex items-center gap-3 text-primary"><Plane className="w-5 h-5" /><h2 className="text-xl text-ink">Plan My Visit</h2></div>
           <Row label="Full name"><input required value={form.name} onChange={e => set("name", e.target.value)} className={inp} /></Row>
-          <Row label="Email address"><input required type="email" value={form.email} onChange={e => set("email", e.target.value)} className={inp} placeholder="you@email.com" /></Row>
+          <Row label="Email address">
+            <input required type="email" autoComplete="email" inputMode="email" value={form.email} onChange={e => { set("email", e.target.value); setEmailError(""); }} className={inp} placeholder="you@email.com" aria-invalid={!!emailError} />
+            {emailError && <span role="alert" className="mt-1 block text-xs text-destructive">{emailError}</span>}
+          </Row>
           <Row label="Country">
             <select required value={form.country} onChange={e => set("country", e.target.value)} className={inp}>
               <option value="">Select your country</option>

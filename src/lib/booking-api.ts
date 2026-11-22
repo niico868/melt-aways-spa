@@ -7,6 +7,15 @@
 export const BOOKING_API_URL =
   "https://kwtfqqwtffzbmfsjrswf.supabase.co/functions/v1/website-booking";
 
+/**
+ * Email is required on every form: the salon API rejects a booking or
+ * enquiry without one, and uses it to send the client's confirmation.
+ * Same rule as the API, so anything that passes here is accepted there.
+ */
+export const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
+export const isValidEmail = (email: string) => EMAIL_RE.test(email.trim()) && email.trim().length <= 200;
+export const EMAIL_ERROR = "Please enter a valid email address so we can send your confirmation.";
+
 /** Normalize a service name for matching: lowercase, alphanumeric only. */
 export function normalizeServiceName(name: string): string {
   return name.toLowerCase().replace(/[^a-z0-9]/g, "");
@@ -24,7 +33,7 @@ export async function postEnquiry(payload: {
   source: "treatment-finder" | "consultation" | "visit" | "contact";
   name: string;
   phone: string;
-  email?: string;
+  email: string;
   message: string;
   mk_hp?: string;
 }): Promise<boolean> {
@@ -32,7 +41,7 @@ export async function postEnquiry(payload: {
     const res = await fetch(BOOKING_API_URL, {
       method: "POST",
       headers: { "content-type": "application/json" },
-      body: JSON.stringify({ type: "enquiry", mk_hp: "", ...payload }),
+      body: JSON.stringify({ type: "enquiry", mk_hp: "", ...payload, email: payload.email.trim() }),
     });
     if (!res.ok) {
       console.log("Salon booking API rejected enquiry:", res.status);
