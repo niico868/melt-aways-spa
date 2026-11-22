@@ -68,6 +68,7 @@ export type VipFormState = {
   goal_weight: string;
   // Step 3
   start_period: string;
+  twice_weekly_ok: YesNo;
   weekly_ok: YesNo;
   biweekly_ok: YesNo;
   best_days: string;
@@ -117,6 +118,7 @@ export const emptyVipForm = (): VipFormState => ({
   current_weight: "",
   goal_weight: "",
   start_period: "",
+  twice_weekly_ok: "",
   weekly_ok: "",
   biweekly_ok: "",
   best_days: "",
@@ -162,6 +164,7 @@ export function validateVipStep(step: number, f: VipFormState): Record<string, s
   }
   if (step === 3) {
     if (!f.start_period) e.start_period = "Please choose when you would like to begin.";
+    if (f.twice_weekly_ok === "") e.twice_weekly_ok = "Please answer this question.";
     if (f.weekly_ok === "") e.weekly_ok = "Please answer this question.";
     if (f.biweekly_ok === "") e.biweekly_ok = "Please answer this question.";
     if (f.open_three_months === "") e.open_three_months = "Please answer this question.";

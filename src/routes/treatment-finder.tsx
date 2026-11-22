@@ -4,7 +4,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { ArrowRight, ArrowLeft, Check, Sparkles, MessageCircle } from "lucide-react";
 import { Section, Eyebrow } from "@/components/Section";
 import { waLink, PACKAGES } from "@/lib/site";
-import { postEnquiry } from "@/lib/booking-api";
+import { EMAIL_ERROR, isValidEmail, postEnquiry } from "@/lib/booking-api";
 import { EnquiryError } from "@/components/EnquiryError";
 import {
   FINDER_GOALS, FINDER_AREAS, suggestPackage, qualifiesForConsult,
@@ -81,7 +81,7 @@ function TreatmentFinderPage() {
 
   const canNext = (() => {
     switch (step) {
-      case 0: return a.fullName.trim().length > 1 && a.phone.length >= 7;
+      case 0: return a.fullName.trim().length > 1 && a.phone.length >= 7 && isValidEmail(a.email);
       case 1: return a.goals.length > 0;
       case 2: return a.targetAreas.length > 0;
       case 3: return a.timeline !== "";
@@ -158,7 +158,10 @@ function TreatmentFinderPage() {
                 <div className="grid gap-4">
                   <Field label="Full name"><input className={input} value={a.fullName} onChange={e => update("fullName", e.target.value)} placeholder="Your name" /></Field>
                   <div className="grid sm:grid-cols-2 gap-4">
-                    <Field label="Email"><input className={input} type="email" value={a.email} onChange={e => update("email", e.target.value)} placeholder="you@example.com" /></Field>
+                    <Field label="Email *">
+                      <input className={input} type="email" required autoComplete="email" inputMode="email" value={a.email} onChange={e => update("email", e.target.value)} placeholder="you@example.com" aria-invalid={a.email.trim() !== "" && !isValidEmail(a.email)} />
+                      {a.email.trim() !== "" && !isValidEmail(a.email) && <span role="alert" className="mt-1 block text-xs text-destructive">{EMAIL_ERROR}</span>}
+                    </Field>
                     <Field label="Phone (WhatsApp)"><input className={input} value={a.phone} onChange={e => update("phone", e.target.value)} placeholder="+1 868 ..." /></Field>
                   </div>
                   <Field label="Age range (optional)"><input className={input} value={a.age} onChange={e => update("age", e.target.value)} placeholder="e.g. 32" /></Field>

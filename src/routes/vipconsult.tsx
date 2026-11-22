@@ -172,6 +172,7 @@ function VipConsultPage() {
         f.current_weight && `Current weight: ${f.current_weight}`,
         f.goal_weight && `Goal weight: ${f.goal_weight}`,
         f.start_period && `Start: ${f.start_period}`,
+        f.twice_weekly_ok && `Twice a week OK: ${f.twice_weekly_ok}`,
         f.weekly_ok && `Weekly OK: ${f.weekly_ok}`,
         f.biweekly_ok && `Every two weeks OK: ${f.biweekly_ok}`,
         f.best_days && `Best days: ${f.best_days}`,
@@ -408,6 +409,7 @@ function VipConsultPage() {
                   </select>
                   <Err msg={errors.start_period} />
                 </div>
+                <YesNoGroup name="twice_weekly_ok" label="Could you attend sessions twice a week? *" value={f.twice_weekly_ok} onChange={(v) => set("twice_weekly_ok", v)} error={errors.twice_weekly_ok} />
                 <YesNoGroup name="weekly_ok" label="Could you attend appointments weekly? *" value={f.weekly_ok} onChange={(v) => set("weekly_ok", v)} error={errors.weekly_ok} />
                 <YesNoGroup name="biweekly_ok" label="Could you attend appointments once every two weeks? *" value={f.biweekly_ok} onChange={(v) => set("biweekly_ok", v)} error={errors.biweekly_ok} />
                 <div className="mt-5">
@@ -474,6 +476,7 @@ function VipConsultPage() {
                   <Summary label="Primary goal" value={f.primary_goal} />
                   <Summary label="Target areas" value={f.target_areas.join(", ")} />
                   <Summary label="Preferred start" value={f.start_period} />
+                  <Summary label="Twice a week" value={f.twice_weekly_ok} />
                 </dl>
                 <div className="mt-6 space-y-3">
                   {([
